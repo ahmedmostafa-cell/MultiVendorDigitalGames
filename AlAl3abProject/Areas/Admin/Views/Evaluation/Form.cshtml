@@ -1,0 +1,197 @@
+﻿@model Domains.TbEvaluation
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">الوحة التحكم/</span>  تقييمات منتجات التجار
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">  تقييمات</h5>
+                <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Evaluation" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="EvaluationId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="multicol-country">اسم صاحب التقييم   </label>
+                            <select disabled asp-items="@(new SelectList(ViewBag.users , "Id" , "FirstName"))" asp-for="UserId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم صاحب التقييم</option>
+
+                            </select>
+                            <span asp-validation-for="UserId" class="text-danger"></span>
+                        </div>
+
+
+                         <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم المنتج التي تتناوله التقييم</label>
+                            <select disabled asp-items="@(new SelectList(ViewBag.items , "ItemId" , "ItemName"))" asp-for="ItemId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم المنتج التي تتناوله التقييم</option>
+
+                            </select>
+                            <span asp-validation-for="ItemId" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم التاجر</label>
+                            <select disabled asp-items="@(new SelectList(ViewBag.sellers , "SellerId" , "SellerFullName"))" asp-for="SellerId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم التاجر</option>
+
+                            </select>
+                            <span asp-validation-for="SellerId" class="text-danger"></span>
+                        </div>
+                      
+                         <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-fullname">  المعيار الاول تقييم نجوم</label>
+                            <input disabled asp-for="ParameterOneStarts" type="text" class="form-control" id="basic-default-fullname" placeholder="    المعيار الاول تقييم نجوم" />
+                            <span asp-validation-for="ParameterOneStarts" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company"> المعيار الاول تقييم رقم</label>
+                            <input disabled asp-for="ParameterOneNumer" type="text" class="form-control" id="basic-default-company" placeholder=" المعيار الاول تقييم رقم" />
+                            <span asp-validation-for="ParameterOneNumer" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">  المعيار الثاني تقييم نجوم</label>
+                            <input disabled asp-for="ParameterwoStarts" type="text" class="form-control" id="basic-default-fullname" placeholder="    المعيار الثاني تقييم نجوم" />
+                            <span asp-validation-for="ParameterwoStarts" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company"> المعيار الثاني تقييم رقم</label>
+                            <input disabled asp-for="ParameterTwoNumber" type="text" class="form-control" id="basic-default-company" placeholder=" المعيار الثاني تقييم رقم" />
+                            <span asp-validation-for="ParameterTwoNumber" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">  المعيار الثالث تقييم نجوم</label>
+                            <input disabled asp-for="ParameterThreeStarts" type="text" class="form-control" id="basic-default-fullname" placeholder="    المعيار الثالث تقييم نجوم" />
+                            <span asp-validation-for="ParameterThreeStarts" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company"> المعيار الثالث تقييم رقم</label>
+                            <input disabled asp-for="ParamterThreeNumber" type="text" class="form-control" id="basic-default-company" placeholder=" المعيار الثالث تقييم رقم" />
+                            <span asp-validation-for="ParamterThreeNumber" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">  المعيار الرابع تقييم نجوم</label>
+                            <input disabled asp-for="ParameterFourStarts" type="text" class="form-control" id="basic-default-fullname" placeholder="    المعيار الرابع تقييم نجوم" />
+                            <span asp-validation-for="ParameterFourStarts" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company"> المعيار الرابع تقييم رقم</label>
+                            <input disabled asp-for="ParameterFourNumber" type="text" class="form-control" id="basic-default-company" placeholder=" المعيار الرابع تقييم رقم" />
+                            <span asp-validation-for="ParameterFourNumber" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company"> التقييم</label>
+                            <input disabled asp-for="EvaluationText" type="text" class="form-control" id="basic-default-company" placeholder="    التقييم" />
+                            <span asp-validation-for="EvaluationText" class="text-danger"></span>
+                        </div>
+
+
+                       
+
+
+
+                      
+
+
+
+
+
+                        
+
+                       
+
+
+                     
+
+
+
+
+                       
+
+
+
+
+                        <div class="pt-4">
+                           
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    <script>
+                //alert("ahmed");
+                const logo = document.getElementById('selectedFile');
+                const license = document.getElementById('selectedFiles');
+                const form = document.getElementById('form')
+                const erroElement = document.getElementById('error')
+                const erroElement1 = document.getElementById('error1')
+        form.addEventListener('submit', (e) => {
+            //e.preventDefault();
+            let messages = [];
+            let messages2 = [];
+            if (logo.value === '' || logo.value == null) {
+                //alert('ahmed');
+                messages.push('This field is required');
+                erroElement.innerHTML = messages;
+            }
+            else {
+                messages = [];
+                erroElement.innerHTML = messages;
+
+                    }
+            if (license.value === '' || license.value == null) {
+                //alert('ahmed');
+                messages2.push('This field is required');
+                erroElement1.innerHTML = messages2;
+                    }
+            else {
+                messages = [];
+                erroElement1.innerHTML = messages2;
+
+                    }
+
+
+                });
+    </script>
+
+ }

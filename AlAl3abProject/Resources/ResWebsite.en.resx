@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lbRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="lbLogIn" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
+  <data name="lbSearchIn" xml:space="preserve">
+    <value>Search In</value>
+  </data>
+  <data name="lbCheckout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="lbClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="lbShoppingCart" xml:space="preserve">
+    <value>Shopping Cart</value>
+  </data>
+  <data name="lbSubtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="lbViewCart" xml:space="preserve">
+    <value>View Cart</value>
+  </data>
+  <data name="lbAboutBenzoo" xml:space="preserve">
+    <value>About Benzoo</value>
+  </data>
+  <data name="lbAboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="lbBlog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="lbBuy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="lbContact" xml:space="preserve">
+    <value>Contact-us....</value>
+  </data>
+  <data name="lbCopyright" xml:space="preserve">
+    <value>Copyright © 2023 Visooft. All Rights Reserved.</value>
+  </data>
+  <data name="lbCreateaticket" xml:space="preserve">
+    <value>Create a ticket</value>
+  </data>
+  <data name="lbDashBoard" xml:space="preserve">
+    <value>DashBoard</value>
+  </data>
+  <data name="lbFaq" xml:space="preserve">
+    <value>Faq</value>
+  </data>
+  <data name="lbGotQuestion" xml:space="preserve">
+    <value>Got Question? Call us 24/7</value>
+  </data>
+  <data name="lbHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="lbHowtobuy" xml:space="preserve">
+    <value>How to buy</value>
+  </data>
+  <data name="lbNews" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="lbSellonBenzoo" xml:space="preserve">
+    <value>Sell on Benzoo</value>
+  </data>
+  <data name="lbsocial" xml:space="preserve">
+    <value>Social</value>
+  </data>
+  <data name="lbWe" xml:space="preserve">
+    <value>We're using safe payment for</value>
+  </data>
+  <data name="lbAdd" xml:space="preserve">
+    <value>Add To Cart</value>
+  </data>
+  <data name="lbfrom" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="lbratings" xml:space="preserve">
+    <value>ratings</value>
+  </data>
+  <data name="lbBest" xml:space="preserve">
+    <value>Best selling eGift Cards</value>
+  </data>
+  <data name="lbBestselling" xml:space="preserve">
+    <value>Best selling gift cards</value>
+  </data>
+  <data name="lbGame" xml:space="preserve">
+    <value>Game Top</value>
+  </data>
+  <data name="lbOurCategories" xml:space="preserve">
+    <value>Our Categories</value>
+  </data>
+  <data name="lbRecommended" xml:space="preserve">
+    <value>Recommended for you</value>
+  </data>
+  <data name="lbUpcoming" xml:space="preserve">
+    <value>Upcoming games</value>
+  </data>
+  <data name="lbLoad" xml:space="preserve">
+    <value>Load more</value>
+  </data>
+  <data name="lbBuy2" xml:space="preserve">
+    <value>Buy Fortnite V-Bucks gift card | Epic Games gift card</value>
+  </data>
+  <data name="lbA" xml:space="preserve">
+    <value>Alphabet: A-Z</value>
+  </data>
+  <data name="lbhigh" xml:space="preserve">
+    <value>Price :high to Low</value>
+  </data>
+  <data name="lbLow" xml:space="preserve">
+    <value>Price :Low to high</value>
+  </data>
+  <data name="lbNewest" xml:space="preserve">
+    <value>Date : Newest First</value>
+  </data>
+  <data name="lbOldest" xml:space="preserve">
+    <value>Date : Oldest First</value>
+  </data>
+  <data name="lbResults" xml:space="preserve">
+    <value>Results found</value>
+  </data>
+  <data name="lbZ" xml:space="preserve">
+    <value>Alphabet: Z-A</value>
+  </data>
+  <data name="lbAllcountries" xml:space="preserve">
+    <value>All countries</value>
+  </data>
+  <data name="lbClean" xml:space="preserve">
+    <value>Clean All</value>
+  </data>
+  <data name="lbCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="lbFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="lbmax" xml:space="preserve">
+    <value>max</value>
+  </data>
+  <data name="lbminu" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="lbOperating system" xml:space="preserve">
+    <value>Operating system</value>
+  </data>
+  <data name="lbPlatforms" xml:space="preserve">
+    <value>Platforms</value>
+  </data>
+  <data name="lbPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="lbProduct" xml:space="preserve">
+    <value>Product name</value>
+  </data>
+  <data name="lbRegions" xml:space="preserve">
+    <value>Regions</value>
+  </data>
+  <data name="lbSearchbyplatform" xml:space="preserve">
+    <value>Search by platform</value>
+  </data>
+  <data name="lbSearchbyproduct" xml:space="preserve">
+    <value>Search by product name</value>
+  </data>
+  <data name="lbSearchbyregion" xml:space="preserve">
+    <value>Search by region</value>
+  </data>
+  <data name="lbType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="lbHello" xml:space="preserve">
+    <value>Hellow</value>
+  </data>
+  <data name="lbBusinessDevelopment" xml:space="preserve">
+    <value>Business Development</value>
+  </data>
+  <data name="lbISSUES" xml:space="preserve">
+    <value>ISSUES WITH</value>
+  </data>
+  <data name="lbLegalDepartment" xml:space="preserve">
+    <value>Legal Department</value>
+  </data>
+  <data name="lbPURCHASE" xml:space="preserve">
+    <value>PURCHASE?</value>
+  </data>
+  <data name="lbTalentteam" xml:space="preserve">
+    <value>Talent team</value>
+  </data>
+  <data name="lbThebestway" xml:space="preserve">
+    <value>The best way to resolve it quickly is to</value>
+  </data>
+  <data name="lbAccount" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="lbDigitalproducts" xml:space="preserve">
+    <value>Digital products</value>
+  </data>
+  <data name="lbSearchFaq" xml:space="preserve">
+    <value>Search Faq for answers</value>
+  </data>
+  <data name="lbWhatdo" xml:space="preserve">
+    <value>What do you need help with?</value>
+  </data>
+  <data name="lbStill" xml:space="preserve">
+    <value>Still have questions?</value>
+  </data>
+  <data name="lbEsports" xml:space="preserve">
+    <value>Esports</value>
+  </data>
+  <data name="lbFeatures" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="lbBrowse" xml:space="preserve">
+    <value>Browse Tags</value>
+  </data>
+  <data name="lbLatest" xml:space="preserve">
+    <value>Latest</value>
+  </data>
+  <data name="lbPopular" xml:space="preserve">
+    <value>Popular</value>
+  </data>
+  <data name="lbTrending" xml:space="preserve">
+    <value>Trending</value>
+  </data>
+  <data name="lbBenzooisone" xml:space="preserve">
+    <value>Benzoo is one of the largest and most trusted game stores in the world!</value>
+  </data>
+  <data name="lbPlease" xml:space="preserve">
+    <value>Please</value>
+  </data>
+  <data name="lbtolearn" xml:space="preserve">
+    <value>to learn more about the service.</value>
+  </data>
+  <data name="lbStart" xml:space="preserve">
+    <value>Start selling</value>
+  </data>
+  <data name="lbBecomeourregistereduserorlogin" xml:space="preserve">
+    <value>Become our registered user or login</value>
+  </data>
+  <data name="lbCreateanaccount" xml:space="preserve">
+    <value>Create an account</value>
+  </data>
+  <data name="lbFilloutKYCform" xml:space="preserve">
+    <value>Fill out KYC form</value>
+  </data>
+  <data name="lbHowtostart" xml:space="preserve">
+    <value>How to start</value>
+  </data>
+  <data name="lbIncrease" xml:space="preserve">
+    <value>Increase the reach ofyour products with Eneba youcan sellmore.</value>
+  </data>
+  <data name="lbSellmoregames" xml:space="preserve">
+    <value>Sell more games</value>
+  </data>
+  <data name="lbSetupyourpayments" xml:space="preserve">
+    <value>Set up your payments</value>
+  </data>
+  <data name="lbAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="lbBasicinformation" xml:space="preserve">
+    <value>Basic information</value>
+  </data>
+  <data name="lbBUSINESSADDRESS" xml:space="preserve">
+    <value>BUSINESS ADDRESS</value>
+  </data>
+  <data name="lbBUSINESSDETAILS" xml:space="preserve">
+    <value>BUSINESS DETAILS</value>
+  </data>
+  <data name="lbcity" xml:space="preserve">
+    <value>city</value>
+  </data>
+  <data name="lbContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="lbDateofbirth" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="lbDocuments" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="lbEmailaddress" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="lbFullname" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="lbOfferDetails" xml:space="preserve">
+    <value>Offer Details</value>
+  </data>
+  <data name="lbPERSONALDETAILS" xml:space="preserve">
+    <value>PERSONAL DETAILS</value>
+  </data>
+  <data name="lbPhonenumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="lbSaveforlater" xml:space="preserve">
+    <value>Save for later</value>
+  </data>
+  <data name="lbTaxidentificationnumber" xml:space="preserve">
+    <value>Taxidentification number</value>
+  </data>
+  <data name="lbTradename" xml:space="preserve">
+    <value>Trade name</value>
+  </data>
+  <data name="lbTradeReferences" xml:space="preserve">
+    <value>Trade References</value>
+  </data>
+  <data name="lbVATnumber" xml:space="preserve">
+    <value>VAT number</value>
+  </data>
+  <data name="lbWebsite" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="lbZIPCODE" xml:space="preserve">
+    <value>ZIP CODE</value>
+  </data>
+  <data name="lbFullnameen" xml:space="preserve">
+    <value>FullnameEn</value>
+  </data>
+</root>

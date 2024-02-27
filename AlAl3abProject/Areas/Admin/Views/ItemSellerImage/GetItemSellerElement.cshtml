@@ -1,0 +1,139 @@
+﻿@model Domains.TbItemSellerImages
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">الوحة التحكم/</span>  اضافة  صور منتجات للتجار
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر  صور منتجات للتجار</h5>
+                <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="ItemSellerImage" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="ItemSellerImageId">
+                            <input type="hidden" asp-for="ItemSellerId">
+                            <input type="hidden" asp-for="ItemId">
+                            <input type="hidden" asp-for="RegionId">
+                            <input type="hidden" asp-for="SellerId">
+                            <input type="hidden" asp-for="ItemSalePrice">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <input type="hidden" asp-for="CreatedBy">
+                            @*<label class="form-label" for="multicol-country">اسم المنتج </label>
+                            <select asp-items="@(new SelectList(ViewBag.items , "ItemId" , "ItemName"))" asp-for="ItemId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم المنتج التي تتناوله المدونة</option>
+
+                            </select>
+                            <span asp-validation-for="ItemId" class="text-danger"></span>*@
+                        </div>
+                        @* <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم التاجر</label>
+                            <select asp-items="@(new SelectList(ViewBag.sellers , "SellerId" , "SellerFullName"))" asp-for="SellerId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم التاجر</option>
+
+                            </select>
+                            <span asp-validation-for="SellerId" class="text-danger"></span>
+                        </div>*@
+                         <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-company">اضف صورة للمنتج</label>
+                            <input  type="file" multiple class="form-control" required name="files" id="selectedFiles">
+
+                            <span class="text-danger" id="error1"></span>
+                        </div>
+                       @* <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">   سعر المنتج للتاجر</label>
+                            <input asp-for="ItemSalePrice" type="text" class="form-control" id="basic-default-company" placeholder=" سعر المنتج للتاجر" />
+                            <span asp-validation-for="ItemSalePrice" class="text-danger"></span>
+                        </div>*@
+                        @*   <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم المنطقة</label>
+                            <select asp-items="@(new SelectList(ViewBag.regions , "RegionId" , "RegionName"))" asp-for="RegionId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم المنطقة</option>
+
+                            </select>
+                            <span asp-validation-for="RegionId" class="text-danger"></span>
+                        </div>
+                      *@
+
+                       
+
+
+
+
+                      
+
+
+                     
+
+
+
+
+                       
+
+
+
+
+                        <div class="pt-4">
+                            <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    <script>
+                //alert("ahmed");
+                const logo = document.getElementById('selectedFile');
+                const license = document.getElementById('selectedFiles');
+                const form = document.getElementById('form')
+                const erroElement = document.getElementById('error')
+                const erroElement1 = document.getElementById('error1')
+        form.addEventListener('submit', (e) => {
+            //e.preventDefault();
+            let messages = [];
+            let messages2 = [];
+            if (logo.value === '' || logo.value == null) {
+                //alert('ahmed');
+                messages.push('This field is required');
+                erroElement.innerHTML = messages;
+            }
+            else {
+                messages = [];
+                erroElement.innerHTML = messages;
+
+                    }
+            if (license.value === '' || license.value == null) {
+                //alert('ahmed');
+                messages2.push('This field is required');
+                erroElement1.innerHTML = messages2;
+                    }
+            else {
+                messages = [];
+                erroElement1.innerHTML = messages2;
+
+                    }
+
+
+                });
+    </script>
+
+ }

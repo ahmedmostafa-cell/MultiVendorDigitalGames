@@ -1,0 +1,171 @@
+﻿@{
+    Layout = "_Layout1";
+}
+
+
+
+@model IndexHomePageModel
+<!-- Start of Main -->
+<main class="main cart">
+    <div class="page-content pt-10 pb-10">
+        <div class="container">
+            <form class="form checkout-form" action="#" method="post">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6 pr-lg-4 mb-4">
+                        <div class="order-summary">
+                            <div class="payment-methods" id="payment_method">
+                                <h4 class="title font-weight-bold ls-25 pb-0 mb-1">Payment Methods</h4>
+                                <div class="accordion payment-accordion">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="#cash-on-delivery" class="expand">
+                                                <div style="height: 40px;background-color: #fff;width: 53px;border-radius: 5px;margin-right: 10px;">
+                                                    <img class="paypal" src="~/Benzoo/assets/images/braintree_paypal.svg"
+                                                         alt="">
+                                                </div>Benzoo wallet
+                                            </a>
+
+                                        </div>
+                                        <div id="cash-on-delivery" class="card-body collapsed"
+                                             style="display: none;">
+                                            <p class="mb-0 text-dark">
+                                                Please send a check to Store Name, Store Street, Store Town,
+                                                Store State / County, Store Postcode.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="#payment" class="expand">
+                                                <div style="height: 40px;background-color: #fff;width: 53px;border-radius: 5px;margin-right: 10px;">
+                                                    <img class="paypal" src="~/Benzoo/assets/images/braintree_paypal.svg"
+                                                         alt="">
+                                                </div> Paypal
+                                            </a>
+                                        </div>
+                                        <div id="payment" class="card-body collapsed" style="display: none;">
+                                            <p class="mb-0 text-dark">
+                                                Please send a check to Store Name, Store Street, Store Town,
+                                                Store State / County, Store Postcode.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card p-relative">
+                                        <div class="card-header">
+                                            <a href="#paypal" class="expand">
+                                                <div style="height: 40px;background-color: #fff;width: 53px;border-radius: 5px;margin-right: 10px;">
+                                                    <img class="paypal" src="~/Benzoo/assets/images/checkout.svg" alt="">
+                                                </div> Credit or debit card
+                                            </a>
+                                        </div>
+
+                                        <div id="paypal" class="card-body collapsed">
+                                            <div class="row pt-6" style="padding: 10px;background-color: #0c2942;">
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control form-control-md mb-2" placeholder="Cardholder's name" name="street-address-1" required="">
+                                                </div>
+                                                <div class="col-lg-6"></div>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control form-control-md mb-2" placeholder="Card number" name="street-address-1" required="">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <input type="number" class="form-control form-control-md mb-2" placeholder="EXP.Date" name="street-address-1" required="">
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <input type="number" class="form-control form-control-md mb-2" placeholder="cvv" name="street-address-1" required="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 mb-4 sticky-sidebar-wrapper" style="background-color: #063a67;padding: 25px;border-radius: 5px;">
+                        <div class="pin-wrapper">
+                            <div class="order-summary-wrapper sticky-sidebar">
+                                <h3 class="title text-uppercase ls-10">Your Order</h3>
+                                <div class="order-summary">
+                                    <table class="order-table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">
+                                                    <b>Product</b>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var i in Model.lstOrderDetails)
+                                            {
+                                                  <tr class="bb-no">
+                                                <td>
+                                                        <img src="@string.Format("/Uploads/{0}" ,i.ItemImagePath)" style="height: 120px;"
+                                                         alt="">
+                                                </td>
+                                                <td class="product-name text-white">
+                                                        @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? i.ItemNameEn : i.ItemName)<i class="fas fa-times"></i>
+                                                    <span class="product-quantity text-white">@i.ItemQty</span>
+                                                </td>
+                                                <td class="product-total text-white">$@i.ItemSalePriceAfterPromocode</td>
+                                            </tr>
+                                             <tr class="cart-subtotal bb-no">
+                                                <td>
+                                                    <b>Subtotal</b>
+                                                </td>
+                                                <td>
+                                                        <b>$  @(int.Parse(i.ItemSalePriceAfterPromocode) * i.ItemQty)</b>
+                                                </td>
+                                            </tr>
+
+                                            }
+                                          
+                                           
+                                        </tbody>
+                                        <tfoot>
+
+                                            <tr class="order-total">
+                                                <th>
+                                                    <b>Total</b>
+                                                </th>
+                                                <td>
+                                                    <b>$@Model.Order.OrderPriceAfterPromocode</b>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div class="form-group place-order pt-6">
+                                        <button type="submit" class="btn btn-dark btn-block btn-rounded"
+                                                fdprocessedid="54kqjg">
+                                            continue
+                                        </button>
+                                        <p style="font-size: x-small;color: #fff;">
+                                            By clicking "Continue" I acknowledge I
+                                            have read and accepted the Terms and Conditions including the
+                                            Privacy Notice and Cookies. I also have read and accepted
+                                            DigitalKeys's T/C & Refund Policy
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1"></div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<!-- End of Main -->
+<!-- Start of Scroll Top -->
+<a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button">
+    <i class="w-icon-angle-up"></i>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+        <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35"
+                r="34" style="stroke-dasharray: 52.6458, 400;"></circle>
+    </svg>
+</a>
+<!-- End of Scroll Top -->

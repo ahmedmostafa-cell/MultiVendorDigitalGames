@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = "_Layout1";
+}
+
+@model IndexHomePageModel
+
+
+<!-- Start of Main -->
+<main class="main cart">
+    <div class="page-content pt-10">
+        <div class="container">
+            <div class="row gutter-lg">
+                <div class="col-lg-8 pr-lg-4 pb-4">
+                    <div class="row shop-table cart-table pt-2 mr-0 ml-0" style="background-color: #063a67;">
+                        @foreach(var item in  Model.lstPurchasingCart) 
+                        {
+                            <div class="col-lg-2 col-sm-6 product-thumbnail">
+                                <div class="p-relative">
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <figure>
+                                            <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" alt="product" width="300"
+                                             height="338">
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 product-name product2">
+                                <div class="p-relative">
+                                    <a href="">
+                                        <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" style="width: 20px;height: 20px;border-radius: 100%;display: inline-block;" alt="">
+                                        @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.CreatedBy : item.ItemName)
+                                    </a>
+                                    <br>
+                                    <br>
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId"> @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.CreatedBy : item.ItemName)</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 product-quantity  product2">
+                                <div class="input-group">
+                                    <input onchange="ChangeQty(this);" id="myInput" data-od="@item.ItemSellerId" data-item-qty="" data-price="@item.ItemSalePrice" data-item-id="123" class="CartInput quantity form-control bg-vari text-white" type="number" max="100000"
+                                       fdprocessedid="s3ofdp">
+
+                                    <button onclick="snd(this.previousElementSibling)" class="quantity-plus w-icon-plus"
+                                        fdprocessedid="ysla3i"></button>
+                                    <button onclick="snd(this.previousElementSibling.previousElementSibling)" class="quantity-minus w-icon-minus"
+                                        fdprocessedid="v6kk7"></button>
+                                </div>
+                              
+                            </div>
+                            <div class="col-lg-2 product-price  product2">
+                                <div class="input-group">
+                                    <input  id="myInput2" class="form-control bg-vari text-white" type="text"
+                                       fdprocessedid="s3ofdp">
+
+
+                                </div>
+                            </div>
+                           
+                            <div class="col-lg-2 product-price  product2">
+                                <a asp-controller="ViewCart" asp-action="RemoveCart" asp-route-purchasingCartId="@item.PurchasingCartId" type="submit" class="btn btn-close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5px" class="" style="max-width: 16px; min-width: 24px; height: auto;"><g><line x1="1" y1="5" x2="23" y2="5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></line><path d="M14.25,1H9.75a1.5,1.5,0,0,0-1.5,1.5V5h7.5V2.5A1.5,1.5,0,0,0,14.25,1Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><line x1="9.75" y1="17.75" x2="9.75" y2="10.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></line><line x1="14.25" y1="17.75" x2="14.25" y2="10.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></line><path d="M18.86,21.62A1.49,1.49,0,0,1,17.37,23H6.63a1.49,1.49,0,0,1-1.49-1.38L3.75,5h16.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                                </a>
+                                <span id="itemprice" class="amount">@item.ItemSalePrice</span>
+                            </div>
+                            
+
+                        }
+                       
+                    </div>
+                </div>
+                <div class="col-lg-4 sticky-sidebar-wrapper">
+                    <div class="sticky-sidebar" style="background-color: #063a67;border-bottom: 0px none rgb(102, 102, 102);">
+                        <div class="cart-summary mb-4">
+                            <h3 class="cart-title text-uppercase text-white">Summary</h3>
+                            <a onclick="proceedcheckout()"
+                               class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">
+                                Proceed to checkout<i class="w-icon-long-arrow-right"></i>
+                            </a>
+                            <br>
+                            <div class="cart-subtotal d-flex align-items-center justify-content-between">
+                                <label class="ls-25">@Model.lstPurchasingCart.Count()</label>
+                                <span id="Total1"></span>
+                            </div>
+                            <hr class="divider">
+                            <div class="order-total d-flex justify-content-between align-items-center">
+                                <label>Total :</label>
+                                <span id="Total2" class="ls-50"></span>
+                            </div>
+
+                            <br>
+                            <div class="accordion accordion-bg accordion-gutter-md accordion-border show-code-action">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a href="#collapse5-3" class="expand pl-2">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="pr-2" style="width: auto; height: 20px;"><path d="M19.375 12.5016V15.4183C19.375 15.7498 19.2433 16.0678 19.0089 16.3022C18.7745 16.5366 18.4565 16.6683 18.125 16.6683H1.875C1.54348 16.6683 1.22554 16.5366 0.991117 16.3022C0.756696 16.0678 0.625 15.7498 0.625 15.4183V12.5016C1.28804 12.5016 1.92393 12.2382 2.39277 11.7694C2.86161 11.3006 3.125 10.6647 3.125 10.0016C3.125 9.33859 2.86161 8.7027 2.39277 8.23386C1.92393 7.76502 1.28804 7.50163 0.625 7.50163V4.58496C0.625 4.25344 0.756696 3.9355 0.991117 3.70108C1.22554 3.46666 1.54348 3.33496 1.875 3.33496H18.125C18.4565 3.33496 18.7745 3.46666 19.0089 3.70108C19.2433 3.9355 19.375 4.25344 19.375 4.58496V7.50163C18.712 7.50163 18.0761 7.76502 17.6072 8.23386C17.1384 8.7027 16.875 9.33859 16.875 10.0016C16.875 10.6647 17.1384 11.3006 17.6072 11.7694C18.0761 12.2382 18.712 12.5016 19.375 12.5016Z" stroke="white" stroke-opacity="0.6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.2915 8.75195C7.98186 8.75195 8.5415 8.19231 8.5415 7.50195C8.5415 6.8116 7.98186 6.25195 7.2915 6.25195C6.60115 6.25195 6.0415 6.8116 6.0415 7.50195C6.0415 8.19231 6.60115 8.75195 7.2915 8.75195Z" stroke="white" stroke-opacity="0.6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.3335 13.752C14.0239 13.752 14.5835 13.1923 14.5835 12.502C14.5835 11.8116 14.0239 11.252 13.3335 11.252C12.6431 11.252 12.0835 11.8116 12.0835 12.502C12.0835 13.1923 12.6431 13.752 13.3335 13.752Z" stroke="white" stroke-opacity="0.6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.125 6.87695L6.875 13.127" stroke="white" stroke-opacity="0.6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                            Git discount code ?
+                                        </a>
+                                    </div>
+                                    <div class="card-body collapsed pl-2 pr-2" id="collapse5-3">
+                                        <input type="text" class="form-control mb-4 bg-varia text-white pl-2" placeholder="Enter coupon code here..." required="">
+                                        <button id="myButtonn" onclick="applycoupon(this.previousElementSibling)" class="btn btn-dark btn-outline mb-2 btn-rounded text-white">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-img">
+        <img src="assets/images/payment.png" alt="">
+    </div>
+</main>
+<!-- End of Main -->
+<!-- Start of Scroll Top -->
+<a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button">
+    <i class="w-icon-angle-up"></i>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+        <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35"
+                r="34" style="stroke-dasharray: 52.6458, 400;"></circle>
+    </svg>
+</a>
+<!-- End of Scroll Top -->
+
+<script src="~/js/cart.js"></script>

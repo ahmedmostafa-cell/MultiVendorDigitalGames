@@ -1,0 +1,170 @@
+﻿@{
+    Layout = "_Layout1";
+}
+
+    <!-- Start of Main -->
+    <main class="main">
+      <div class="page-content" style="background-color:#095494;">
+        <div class="container pt-10" style="max-width:1282px;">
+          <h1 class="text-white">  Favorites</h1>
+          <div class="shop-content row gutter-lg">
+            <!-- Start of Sidebar, Shop Sidebar -->
+            <aside class="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
+              <!-- Start of Sidebar Overlay -->
+              <div class="sidebar-overlay"></div>
+              <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+
+              <!-- Start of Sidebar Content -->
+              <div class="sidebar-content">
+                <!-- Start of Sticky Sidebar -->
+                <div class="pin-wrapper">
+                  <div class="sticky-sidebar" style="border-bottom: 0px none rgb(102, 102, 102); width: 280px;">
+                                <form asp-controller="Wishlist" asp-action="IndexByName" method="post" role="form" class="header-search hs-expanded hs-round  br-xs d-md-flex input-wrapper mr-4 ml-4">
+                                    <input type="text" class="form-control text-light border-no bg-colone" name="searchInput"  placeholder="Search in..." required="" fdprocessedid="6tanbm">
+                      <button class="btn btn-search border-no " type="submit" fdprocessedid="71u6m"><i class="w-icon-search"></i></button>
+                    </form>
+                  </div>
+                </div>
+                <!-- End of Sidebar Content -->
+              </div>
+              <!-- End of Sidebar Content -->
+            </aside>
+            <!-- End of Shop Sidebar -->
+
+            <!-- Start of Shop Main Content -->
+            <div class="main-content">
+              <nav class="toolbox sticky-toolbox sticky-content fix-top">
+                <div class="toolbox-left">
+                  <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
+                            btn-icon-left d-block d-lg-none d-lg-show"><i class="w-icon-category"></i><span>Filters</span></a>
+                  <h4 class="text-white d-lg-show">Results found: 1</h4>
+                </div>
+                <div class="toolbox-right">
+                  <div class="toolbox-item toolbox-sort select-box text-dark">
+                                <select id="my-select" class="form-control" fdprocessedid="kz1etm">
+                                    <option value="default" selected="selected">
+                                        popularity : Most popular
+                                    </option>
+                                    <option value="lowprice">Price :Low to high</option>
+                                    <option value="highprice">Price :high to Low</option>
+                                    <option value="newdate">Date : Newest First</option>
+                                    <option value="olddate">Date : Oldest First</option>
+                                    <option value="alphabeta">Alphabet: A-Z</option>
+                                    <option value="alphabetz">Alphabet: Z-A</option>
+                                </select>
+                </div>
+                </div>
+              </nav>
+              <div class="product-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-2">
+                @foreach (var item in Model.lstFavouriteCart) 
+                {
+                            <div class="product-wrap">
+
+                                <div class="product text-center">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                             style="height: 290px;">
+                                        </a>
+                                    </figure>
+                                    <a href="@Url.Action("AddToWishList", "Wishlist", new {  itemSellerId = item.ItemSellerId })"><i class="btn-product-iconheart  w-icon-heart"></i></a>
+                                    @* <a href="@Url.Action("AddToWishList", "Wishlist", new { userId = UserManager.GetUserId(User), itemId = item.ItemId })">
+                                <div href="@Url.Action("AddToWishList", "Wishlist", new { userId = UserManager.GetUserId(User), itemId = item.ItemId })" class="product-action-vertical">
+                                <a class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                </div>
+                                </a>*@
+
+
+                                    <a href="#">
+                                        <div class="product-details" style="background-color: #021A2F;">
+                                            <h3 class="product-name text-white">
+                                                <a href="product-default.html" class="text-white">
+                                                    @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+
+                                                </a>
+                                            </h3>
+                                            <a href="product-default.html">
+                                                <div class="product-cat mb-0">
+                                                    <p class="mt-0 mb-0">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.Region)</p>
+                                                </div>
+                                                <div class="product-cat mb-0">
+                                                    <p class="mt-0 mb-0">From</p>
+                                                </div>
+                                                <div class="product-pa-wrapper">
+                                                    <div class="product-price">
+                                                        <p class="mt-0 mb-0">$@item.ItemSalePrice</p>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings-container">
+                                                    <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                </div>
+
+                            </div>
+                }
+                          
+
+              </div>
+
+              <div class="toolbox toolbox-pagination justify-content-between">
+                <p class="showing-info mb-2 mb-sm-0">
+                  Showing<span>1-12 of @ViewBag.favcount</span>Products
+                </p>
+                <ul class="pagination">
+                  <li class="prev disabled">
+                    <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                      <i class="w-icon-long-arrow-left"></i>Prev
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="next">
+                    <a href="#" aria-label="Next">
+                      Next<i class="w-icon-long-arrow-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End of Shop Main Content -->
+          </div>
+        </div>
+      </div>
+     
+    </main>
+ 
+  <!-- End of Page-wrapper -->
+
+
+
+
+
+  <!-- Start of Newsletter popup -->
+  <div class="newsletter-popup mfp-hide">
+    <div class="newsletter-content">
+      <h4 class="text-uppercase font-weight-normal ls-25">Get Up to<span class="text-primary">25% Off</span></h4>
+      <h2 class="ls-25">Sign up to Benzoo</h2>
+      <p class="text-light ls-10">Subscribe to the Benzoo market newsletter to
+        receive updates on special offers.</p>
+      <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-round">
+        <input type="email" class="form-control email font-size-md" name="email" id="email2"
+          placeholder="Your email address" required="" fdprocessedid="xdqys8">
+        <button class="btn btn-dark" type="submit" fdprocessedid="nm8m">SUBMIT</button>
+      </form>
+      <div class="form-checkbox d-flex align-items-center">
+        <input type="checkbox" class="custom-checkbox" id="hide-newsletter-popup" name="hide-newsletter-popup"
+          required="">
+        <label for="hide-newsletter-popup" class="font-size-sm text-light">Don't show this popup again.</label>
+      </div>
+    </div>
+  </div>
+  <!-- End of Newsletter popup -->
+
+<script src="~/js/wishlistfilter.js"></script>
+

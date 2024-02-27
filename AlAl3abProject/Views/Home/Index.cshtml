@@ -1,0 +1,1321 @@
+﻿@{
+    Layout = "_Layout1";
+}
+@model IndexHomePageModel
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<BL.ApplicationUser> SignInManager
+@inject UserManager<BL.ApplicationUser> UserManager
+<!-- Start of Main -->
+    <main class="main">
+      <div class="options">
+          @foreach(var item in Model.lstSliders.Where(a=> a.Location == "رقم واحد")) 
+          {
+            <div class="option active" style="--optionBackground:url(/Uploads/@item.SliderImagePath);">
+            </div>
+
+          }
+
+           @foreach(var item in Model.lstSliders.Where(a=> a.Location != "رقم واحد")) 
+          {
+            <div class="option" style="--optionBackground:url(/Uploads/@item.SliderImagePath);">
+            </div>
+
+          }
+      
+        
+       
+      </div>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+      <script>
+        $(".option").click(function () {
+          $(".option").removeClass("active");
+          $(this).addClass("active");
+        });
+      </script>
+
+
+      <div class="sDj9mo">
+        <h2 class="hUzwE8 text-white">Popular gift cards</h2>
+        <div class="BgBYjV"><a href="/store/psn-gift-cards">
+            <picture>
+              <source srcset="https://cdn.eneba.com/9b35a9095c42fb593f03.png" media="(max-width: 768px)"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII="
+                alt="Psn Giftcard">
+            </picture>
+          </a><a href="/store/steam-gift-cards">
+            <picture>
+              <source srcset="https://cdn.eneba.com/d79e731246e2a3ef97ea.png" media="(max-width: 768px)"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII="
+                alt="Steam Giftcard">
+            </picture>
+          </a><a href="/store/xbox-gift-cards">
+            <picture>
+              <source srcset="https://cdn.eneba.com/77b7dedacd3c7ea3e236.png" media="(max-width: 768px)"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII="
+                alt="Xbox Giftcard">
+            </picture>
+          </a>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <section style="background-color: #095494;margin-top: -25px;">
+        <div class="container shop-content">
+          <abbr class="tooltip tooltip--top section-title pt-10 text-white"
+            data-tooltip="Recommendations are based on user activity data, including product views, cart additions, wishlist additions, and purchases. When logged in, recommendations are personalized; otherwise, they are based on the data from users from the same country">
+                @AlAl3abProject.Resources.ResWebsite.lbRecommended
+            <i class="w-icon-exclamation-circle" style="font-size:17px;color: #e4e4e4;"></i>
+          </abbr>
+          <br> <br>
+          <br> <br>
+          <br>
+          <div class="main-content">
+            <div class="product-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach (var item in Model.lstRecommendedForYou) 
+                    {
+                        <div class="product-wrap">
+                            
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                         style="height: 290px;">
+                                    </a>
+                                </figure>
+                                <a href="@Url.Action("AddToWishList", "Wishlist", new {  itemSellerId = item.ItemSellerId })" ><i class="btn-product-iconheart  w-icon-heart"></i></a>
+                               @* <a href="@Url.Action("AddToWishList", "Wishlist", new { userId = UserManager.GetUserId(User), itemId = item.ItemId })">
+                                    <div href="@Url.Action("AddToWishList", "Wishlist", new { userId = UserManager.GetUserId(User), itemId = item.ItemId })" class="product-action-vertical">
+                                        <a class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                    </div>
+                                </a>*@
+                               
+
+                                <a href="#">
+                                    <div class="product-details" style="background-color: #021A2F;">
+                                        <h3 class="product-name text-white">
+                                            <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white">
+                                                @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+                                                
+                                            </a>
+                                        </h3>
+                                        <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                            <div class="product-cat mb-0">
+                                                <p class="mt-0 mb-0">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.RegionName)</p>
+                                            </div>
+                                            <div class="product-cat mb-0">
+                                                <p class="mt-0 mb-0">From</p>
+                                            </div>
+                                            <div class="product-pa-wrapper">
+                                                <div class="product-price">
+                                                    <p class="mt-0 mb-0">$@item.ItemSalePrice</p>
+                                                </div>
+                                            </div>
+                                            <div class="ratings-container">
+                                                <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                            </div>
+
+                        </div>
+
+                    }
+              
+
+             @* <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/7.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                  <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/1.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/4.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/2.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>*@
+            </div>
+
+            <div class="toolbox toolbox-pagination justify-content-center">
+              <div class="btn-wrap show-code-action">
+                        <a href="#" class="btn btn-primary btn-outline mb-6">@AlAl3abProject.Resources.ResWebsite.lbLoad </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background-color: #063a67;margin-top: -25px;">
+        <div class="container shop-content">
+          <abbr class="tooltip tooltip--top section-title pt-5 text-white"
+            data-tooltip="Recommendations are based on user activity data, including product views, cart additions, wishlist additions, and purchases. When logged in, recommendations are personalized; otherwise, they are based on the data from users from the same country">
+                @AlAl3abProject.Resources.ResWebsite.lbGame
+            <i class="w-icon-exclamation-circle" style="font-size:17px;color: #e4e4e4;"></i>
+          </abbr>
+          <br> <br>
+          <br> <br>
+
+          <div class="main-content">
+            <div class="product-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                @foreach(var item in Model.lstGameTop) 
+                {
+                        <div class="product-wrap">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                         style="height: 290px;">
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                        </div>
+                                    </a>
+
+                                </figure>
+                                <div class="product-details" style="background-color: #021A2F;">
+                                    <h3 class="product-name text-white">
+                                        <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white">
+                                            @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+                                            
+                                        </a>
+                                    </h3>
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <div class="product-cat mb-0">
+                                            <p class="mt-0 mb-0">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.RegionName)</p>
+                                        </div>
+                                        <div class="product-cat mb-0">
+                                            <p class="mt-0 mb-0">From</p>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">
+                                                <p class="mt-0 mb-0">$@item.ItemSalePrice</p>
+                                            </div>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                }
+             
+             @* <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/7.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/1.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/4.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/2.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>*@
+            </div>
+
+            <div class="toolbox toolbox-pagination justify-content-center">
+              <div class="btn-wrap show-code-action">
+                        <a href="#" class="btn btn-primary btn-outline mb-6">@AlAl3abProject.Resources.ResWebsite.lbLoad</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background-color: #095494;margin-top: -25px;">
+        <div class="container shop-content">
+          <abbr class="tooltip tooltip--top section-title pt-5 text-white"
+            data-tooltip="Recommendations are based on user activity data, including product views, cart additions, wishlist additions, and purchases. When logged in, recommendations are personalized; otherwise, they are based on the data from users from the same country">
+                @AlAl3abProject.Resources.ResWebsite.lbBest   
+            <i class="w-icon-exclamation-circle" style="font-size:17px;color: #e4e4e4;"></i>
+          </abbr>
+          <br> <br>
+          <br> <br>
+          <div class="main-content">
+            <div class="product-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach (var item in Model.lstBestSellingEGiftCards)
+                    {
+                        <div class="product-wrap">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                         style="height: 290px;">
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                        </div>
+                                    </a>
+
+                                </figure>
+                                <div class="product-details" style="background-color: #021A2F;">
+                                    <h3 class="product-name text-white">
+                                        <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white">
+                                            @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+
+                                        </a>
+                                    </h3>
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <div class="product-cat mb-0">
+                                            <p class="mt-0 mb-0">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.RegionName)</p>
+                                        </div>
+                                        <div class="product-cat mb-0">
+                                            <p class="mt-0 mb-0">From</p>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">
+                                                <p class="mt-0 mb-0">$@item.ItemSalePrice</p>
+                                            </div>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+             @* <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/6.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                  <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/7.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/1.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/4.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/2.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>*@
+            </div>
+
+            <div class="toolbox toolbox-pagination justify-content-center">
+              <div class="btn-wrap show-code-action">
+                        <a href="#" class="btn btn-primary btn-outline mb-6">@AlAl3abProject.Resources.ResWebsite.lbLoad</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background-color: #063a67;margin-top: -25px;">
+        <div class="container shop-content">
+          <abbr class="tooltip tooltip--top section-title pt-5 text-white"
+            data-tooltip="Recommendations are based on user activity data, including product views, cart additions, wishlist additions, and purchases. When logged in, recommendations are personalized; otherwise, they are based on the data from users from the same country">
+                @AlAl3abProject.Resources.ResWebsite.lbBestselling 
+            <i class="w-icon-exclamation-circle" style="font-size:17px;color: #e4e4e4;"></i>
+          </abbr>
+          <br> <br>
+          <br> <br>
+          <div class="main-content">
+            <div class="product-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach (var item in Model.lstBestSellingGiftCards)
+                    {
+                        <div class="product-wrap">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                         style="height: 290px;">
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                        </div>
+                                    </a>
+
+                                </figure>
+                                <div class="product-details" style="background-color: #021A2F;">
+                                    <h3 class="product-name text-white">
+                                        <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white">
+                                            @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+
+                                        </a>
+                                    </h3>
+                                    <a href="product-default.html">
+                                        <div class="product-cat mb-0">
+                                            <p class="mt-0 mb-0">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.RegionName)</p>
+                                        </div>
+                                        <div class="product-cat mb-0">
+                                            <p class="mt-0 mb-0">From</p>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">
+                                                <p class="mt-0 mb-0">$@item.ItemSalePrice</p>
+                                            </div>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+             @* <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/6.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                  <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/7.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/1.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/4.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/2.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>*@
+            </div>
+
+            <div class="toolbox toolbox-pagination justify-content-center">
+              <div class="btn-wrap show-code-action">
+                        <a href="#" class="btn btn-primary btn-outline mb-6">@AlAl3abProject.Resources.ResWebsite.lbLoad</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background-color: #095494;margin-top: -25px;">
+        <div class="container shop-content">
+          <abbr class="tooltip tooltip--top section-title pt-5 text-white"
+            data-tooltip="Recommendations are based on user activity data, including product views, cart additions, wishlist additions, and purchases. When logged in, recommendations are personalized; otherwise, they are based on the data from users from the same country">
+            @AlAl3abProject.Resources.ResWebsite.lbUpcoming 
+            <i class="w-icon-exclamation-circle"></i>
+          </abbr>
+          <br> <br>
+          <br> <br>
+          <div class="main-content">
+            <div class="product-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                    @foreach (var item in Model.lstUpComingGames)
+                    {
+                        <div class="product-wrap">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                        <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                         style="height: 290px;">
+                                    </a>
+                                </figure>
+                                <div class="product-action-vertical">
+                                    <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                </div>
+                                <a href="#">
+                                    <div class="product-details" style="background-color: #021A2F;">
+                                        <h3 class="product-name text-white">
+                                            <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white">
+                                                @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+
+                                            </a>
+                                        </h3>
+                                        <a asp-controller="ItemDetails" asp-action="Index">
+                                            <div class="product-cat mb-0">
+                                                <p class="mt-0 mb-0">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.RegionName)</p>
+                                            </div>
+                                            <div class="product-cat mb-0">
+                                                <p class="mt-0 mb-0">From</p>
+                                            </div>
+                                            <div class="product-pa-wrapper">
+                                                <div class="product-price">
+                                                    <p class="mt-0 mb-0">$@item.ItemSalePrice</p>
+                                                </div>
+                                            </div>
+                                            <div class="ratings-container">
+                                                <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                            </div>
+
+                        </div>
+
+                    }
+             @* <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/6.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                  <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/7.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/1.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/4.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>
+              <div class="product-wrap">
+                <div class="product text-center">
+                  <figure class="product-media">
+                    <a href="product-default.html">
+                      <img src="~/Benzoo/assets/images/shop/2.jpg" class="img-fluid" alt="Product" width="300" height="225"
+                        style="height: 290px;">
+                      <div class="product-action-vertical">
+                        <a href="#" class="btn-product-iconheart btn-wishlist w-icon-heart" title="Wishlist"></a>
+                      </div>
+                    </a>
+                  </figure>
+                                    <div class="product-details" style="background-color: #021A2F;">
+                    <h3 class="product-name text-white">
+                      <a href="product-default.html" class="text-white">eFootball PES 2020 (Xbox One) Xbox Live Key
+                        GLOBAl</a>
+                    </h3>
+                    <a href="product-default.html">
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">Global</p>
+                    </div>
+                    <div class="product-cat mb-0">
+                      <p class="mt-0 mb-0">From</p>
+                    </div>
+                    <div class="product-pa-wrapper">
+                      <div class="product-price">
+                      <p class="mt-0 mb-0">$374.00</p>
+                      </div>
+                    </div>
+                    <div class="ratings-container">
+                      <p class="mt-0 mb-0 text-white w-icon-heart"> 610</p>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+              </div>*@
+            </div>
+
+            <div class="toolbox toolbox-pagination justify-content-center">
+              <div class="btn-wrap show-code-action">
+                        <a href="#" class="btn btn-primary btn-outline mb-6">@AlAl3abProject.Resources.ResWebsite.lbLoad</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="background-color: #063a67;margin-top: -25px;margin-bottom: -9px;">
+        <div class="container">
+          <div class="category-wrapper row cols-12 pt-4">
+            <div class="title-link-wrapper title-deals after-none appear-animate fadeIn appear-animation-visible"
+              style="animation-duration: 1.2s;">
+                    <h2 class="title font-secondary mb-1 text-white">@AlAl3abProject.Resources.ResWebsite.lbOurCategories</h2>
+            </div>
+            <div class="d-grid">
+                @foreach(var item in Model.lstSubCategories) 
+                {
+                        <div class="w-155 category category-ellipse">
+                            <div class="category-content mb-3">
+                                <h4 class="category-name">
+                                    <a href="demo12-shop.html">5612</a>
+                                </h4>
+                            </div>
+                            <figure class="category-media">
+                                <a href="demo12-shop.html">
+                                    <img src="~/Benzoo/assets/images/categories/sport.svg" alt="Categroy" style="width:40; height:40;">
+                                </a>
+                            </figure>
+                            <div class="category-content">
+                                <h4 class="category-name">
+                                    <a href="demo12-shop.html">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.SubCategoryTitleEn : item.SubCategoryTitle)  </a>
+                                </h4>
+                            </div>
+                        </div>
+                }
+            
+             @* <div class="w-155 category category-ellipse">
+                <div class="category-content mb-3">
+                  <h4 class="category-name">
+                    <a href="demo12-shop.html">5612</a>
+                  </h4>
+                </div>
+                <figure class="category-media">
+                  <a href="demo12-shop.html">
+                    <img src="~/Benzoo/assets/images/categories/sport.svg" alt="Categroy" style="width:40; height:40;">
+                  </a>
+                </figure>
+                <div class="category-content">
+                  <h4 class="category-name">
+                    <a href="demo12-shop.html">Sports</a>
+                  </h4>
+                </div>
+              </div>
+              <div class="w-155 category category-ellipse">
+                <div class="category-content mb-3">
+                  <h4 class="category-name">
+                    <a href="demo12-shop.html">5612</a>
+                  </h4>
+                </div>
+                <figure class="category-media">
+                  <a href="demo12-shop.html">
+                    <img src="~/Benzoo/assets/images/categories/sport.svg" alt="Categroy" style="width:40; height:40;">
+                  </a>
+                </figure>
+                <div class="category-content">
+                  <h4 class="category-name">
+                    <a href="demo12-shop.html">Sports</a>
+                  </h4>
+                </div>
+              </div>
+              <div class="w-155 category category-ellipse">
+                <div class="category-content mb-3">
+                  <h4 class="category-name">
+                    <a href="demo12-shop.html">5612</a>
+                  </h4>
+                </div>
+                <figure class="category-media">
+                  <a href="demo12-shop.html">
+                    <img src="~/Benzoo/assets/images/categories/sport.svg" alt="Categroy" style="width:40; height:40;">
+                  </a>
+                </figure>
+                <div class="category-content">
+                  <h4 class="category-name">
+                    <a href="demo12-shop.html">Sports</a>
+                  </h4>
+                </div>
+              </div>*@
+            </div>
+            <div class="toolbox toolbox-pagination justify-content-center">
+              <div class="btn-wrap show-code-action">
+                        <a href="#" class="btn btn-primary btn-outline mb-6">@AlAl3abProject.Resources.ResWebsite.lbLoad</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+   
+    </main>

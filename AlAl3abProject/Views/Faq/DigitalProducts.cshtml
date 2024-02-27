@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "_Layout1";
+}
+@model IndexHomePageModel
+
+
+
+
+<main class="main">
+
+            <section style="background-color: #063a67;">
+                <div class="tab tab-vertical row gutter-lg">
+                    <div class="tab-content mb-6">
+                        <div class="tab-pane active in" id="account-dashboard">
+                            <div class="row pr-2 pl-2">
+                                <div class="col-lg-9">
+                                    @if(Model.lstFaqFaqsubCategories.Count() > 0) 
+                                    {
+                                <h3 class="text-white">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? Model.lstFaqFaqsubCategories.FirstOrDefault().FaqcategoryNameEn : Model.lstFaqFaqsubCategories.FirstOrDefault().FaqcategoryName)</h3>
+                                    }
+                          
+                                </div>
+                                <div class="col-lg-3 pb-4">
+                                    <form method="get" action="#"
+                                          class="header-search hs-expanded hs-round  d-md-flex input-wrapper">
+                                        <input type="text" class="form-control" name="search" id="search"
+                                               placeholder="Search Faq for answers" required="" fdprocessedid="gfbmih">
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row mr-2 ml-2">
+                                @foreach(var item in Model.lstFaqFaqsubCategories) 
+                                {
+                            <div class="col-lg-3 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="account.html" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <a asp-controller="Faq" asp-action="Account" asp-route-id="@item.FaqsubCategoryId">
+                                            <img src="https://eneba-physical-faq-cdn.s3.amazonaws.com/section/c60477d2-f021-4399-acf7-ac6576006c43.svg" alt="">
+                                        </a>
+                                        <div class="icon-box-content">
+                                            <p class=" mb-0"><a asp-controller="Faq" asp-action="Account" asp-route-id="@item.FaqsubCategoryId" class="text-white">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.FaqsubCategoryNameEn : item.FaqsubCategoryName)</a></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                                }
+                               
+                              
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+          
+        </main>
+   
+
+  
+   
+  
+    
+
+
+

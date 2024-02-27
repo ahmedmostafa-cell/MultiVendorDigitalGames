@@ -1,0 +1,88 @@
+﻿@model AlAl3abProject.Models.HomePageModel
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> USERmANAGER
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  المنتجات للتجار</h4>
+
+    <!-- DataTable with Buttons -->
+    <div class="card">
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+
+                        <th>اسم الشاري</th>
+                        <th>اسم المنتج</th>
+                      
+                        <th>اسم التاجر   </th>
+                        <th>صورة المنتج</th>
+
+                        <th> الكمية</th>
+                         <th>سعر المنتج قبل البرومو</th>
+
+                        <th>سعر المنتج بعد البرومو</th>
+                       
+                       
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lstOrderDetails)
+                    {
+
+                        <tr>
+                            <td>@USERmANAGER.Users.Where(a=> a.Id == item.UserId).FirstOrDefault().UserName</td>
+                            <td>@Model.lstItems.Where(a=> a.ItemId == item.ItemId).FirstOrDefault().ItemName</td>
+                          
+                            <td>
+                                @Model.lstSellers.Where(a=> a.CreatedBy == item.SellerId).FirstOrDefault().SellerFullName
+                            </td>
+                            <td style="width:10%">
+
+                                <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.ItemImagePath)" alt="Img placeholder">
+
+
+
+
+
+                            </td>
+                              <td>
+                                @item.ItemQty
+                            </td>
+
+                           <td>@item.ItemSalePrice</td>
+
+                            <td>@item.ItemSalePriceAfterPromocode</td>
+                          
+                          
+                           
+                        
+
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal to add new record -->
+    <div class="offcanvas offcanvas-end" id="add-new-record">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+            <button type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+
+    </div>
+    <!--/ DataTable with Buttons -->
+
+    <hr class="my-5" />
+
+
+    <!--/ Content -->
+</div>

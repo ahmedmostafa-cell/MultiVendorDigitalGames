@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "_Layout1";
+
+}
+@model IndexHomePageModel
+        <!-- Start of Main -->
+<main class="main">
+    <section class="contact-section pt-1 pb-1">
+        <div class="container mb-9">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="text-white">@AlAl3abProject.Resources.ResWebsite.lbISSUES <br> @AlAl3abProject.Resources.ResWebsite.lbPURCHASE</h1>
+                    <p class="text-white">@AlAl3abProject.Resources.ResWebsite.lbThebestway  <a asp-controller="Faq" asp-action="Index" style="color: darkorange;">@AlAl3abProject.Resources.ResWebsite.lbCreateaticket.</a> </p>
+                    <a asp-controller="Faq" asp-action="Index" class="btn btn-rounded" style="background-color: darkorange;color: #ffff;" fdprocessedid="kn5faa">@AlAl3abProject.Resources.ResWebsite.lbCreateaticket</a>
+                </div>
+                <div class="col-md-4">
+                    <div class="border-left">
+                        <h5 class="text-white">@AlAl3abProject.Resources.ResWebsite.lbBusinessDevelopment</h5>
+                        <p>@AlAl3abProject.Resources.ResWebsite.lbContact</p>
+                        <a href="">@Model.elelmentContactUs.BusinessDevelopementEmail</a>
+                        <br>
+                        <h5 class="text-white">@AlAl3abProject.Resources.ResWebsite.lbLegalDepartment</h5>
+                        <p>@AlAl3abProject.Resources.ResWebsite.lbContact</p>
+                        <a href="">@Model.elelmentContactUs.LegalDepartmentEmail</a>
+                        <br>
+                        <h5 class="text-white">@AlAl3abProject.Resources.ResWebsite.lbTalentteam</h5>
+                        <p>@AlAl3abProject.Resources.ResWebsite.lbContact</p>
+                        <a href="">@Model.elelmentContactUs.CreatedBy</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+</main>
+<!-- End of Main -->

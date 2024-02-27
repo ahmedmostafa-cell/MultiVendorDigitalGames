@@ -1,0 +1,193 @@
+﻿@{
+    Layout = "";
+}
+@model LoginViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<BL.ApplicationUser> signInManager
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Benzoo</title>
+    <link rel="icon" type="image/png" href="~/Benzoo/assets/images/icons/favicon.png">
+    <script src="~/Benzoo/assets/js/webfont.js" async=""></script>
+    <link rel="preload" href="~/Benzoo/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
+    <link rel="preload" href="~/Benzoo/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
+    <link rel="preload" href="~/Benzoo/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
+    <link rel="preload" href="~/Benzoo/assets/fonts/wolmart.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/css/style.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800%7CSeoge+Script:400,500,600,700,800"
+          media="all">
+</head>
+<style>
+    .form-control.form-control-md {
+        background-color: #063a67;
+    }
+</style>
+<body class="loaded" style="background-color: #063a67;">
+
+    <div class="page-wrapper">
+        <main class="main">
+            <div class="page-content">
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <img class="pt-4 pl-3" src="~/Benzoo/assets/images/logo.png" alt="Logo" width="168" height="53">
+                </a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="coming-content">
+                                <h2 class="coming-title ls-25">Hi! <br> It’s nice to see <span>you!</span></h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-4">
+                            <div class="signup">
+                                <h3>Log in</h3>
+                                <p>New user ? <a asp-controller="Home" asp-action="register" class="defaul-color"> Create acount</a></p>
+
+                                @{
+                                    var schemes = await signInManager.GetExternalAuthenticationSchemesAsync();
+                                    var loginProivders = schemes.ToList();
+                                }
+                                @if (loginProivders.Count() > 0)
+                                {
+                                    @foreach (var provider in loginProivders) 
+                                    {
+                                        <form asp-controller="Home" asp-action="ExternalLogin" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" role="form">
+
+                                            @if (provider.Name == "Google") 
+                                            {
+                                                <p>
+                                                    <div  >
+                                                        <img src="~/Benzoo/assets/images/google2.png"
+                                                 class="float-left" alt=""> <button class="btn btn-google  btn-shadow  btn-rounded w-100" style="width: 100%;border:none;" name="provider" value="@provider.Name" type="submit">
+                                                            Continue with @provider.Name
+                                                        </button>
+                                                    </div>
+                                                </p>
+                                            }
+                                            else 
+                                            {
+                                                <p>
+                                                     <div  >
+                                                        <img src="~/Benzoo/assets/images/facebook.png" class="float-left" alt=""> <button class="btn btn-facebook btn-shadow btn-rounded w-100 mt-2" style="width: 100%;border:none;" name="provider" value="@provider.Name" type="submit">
+                                                            Continue with @provider.Name
+                                                        </button>
+                                                </div>
+
+                                                </p>
+                                               
+                                            }
+
+                                           
+                                           
+
+
+
+                                        </form>
+
+                                    }
+                                      
+                                         
+                                           
+                                       
+                                    
+                                }
+
+                               
+                              
+                               
+                                <div class="uOlJYa mt-3"><span>or</span></div>
+                                <form asp-controller="Home" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="form account-details-form" method="post" role="form">
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <input type="text" asp-for="Email" placeholder="Email"
+                                               class="form-control form-control-md pl-3">
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group pt-2 pb-2">
+                                        <input type="password" asp-for="Password" placeholder="password"
+                                               class="form-control form-control-md pl-3">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+
+                                   
+                                        <button class="btn btn-primary btn-shadow btn-rounded w-100 pt-2" style="color: #fff;" type="submit" >Log in</button>
+                                  
+                                    <p class="mt-3" style="text-align: center;">
+                                        <a asp-controller="Home" asp-action="forgotpassword" style="color: #fff;">
+                                            Forgot
+                                            password ?
+                                        </a>
+                                    </p>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <div class="footer">
+                                <p class="copyright text-white">Copyright © 2021 Benzoo Store. All Rights Reserved.</p>
+                                <a href="">Terms & Conditions</a>
+                                <a href="">Privacy notice</a>
+                                <a href="">Cookie Preferences</a>
+                                <a href="">Support</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Plugin JS File -->
+    <script src="~/Benzoo/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Benzoo/assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>
+    <script src="~/Benzoo/assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
+    <script src="~/Benzoo/assets/js/main.min.js"></script>
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+</body>
+
+</html>
+
+
+
+
+
+
+@*<p>
+    <a href="#" class="btn btn-Apple btn-shadow btn-rounded w-100 mt-2">
+        <img src="~/Benzoo/assets/images/Apple.png"
+             class="float-left" alt=""> Continue with Apple
+    </a>
+    @foreach (var provider in loginProivders)
+    {
+    @if (provider.Name == "Google")
+    {
+    <a href="#" class="btn btn-google  btn-shadow  btn-rounded w-100">
+    <img src="~/Benzoo/assets/images/google2.png"
+    class="float-left" alt=""> Continue with @provider.Name
+    </a>
+    }
+    else
+    {
+    <a href="#" class="btn btn-facebook btn-shadow btn-rounded w-100 mt-2">
+    <img src="~/Benzoo/assets/images/facebook.png" class="float-left" alt=""> Continue with @provider.Name
+    </a>
+    }
+
+
+    }
+</p>*@

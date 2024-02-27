@@ -1,0 +1,95 @@
+﻿@model AlAl3abProject.Models.HomePageModel
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  المدونات</h4>
+   
+    <!-- DataTable with Buttons -->
+    <div class="card">
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>عنوان المدونة</th>
+                      
+                        <th>الصورة</th>
+                        <th>ترتيب الصورة </th>
+
+                        <th>هل الصورة رئيسية</th>
+
+                        <th>تفاصيل</th>
+                        
+                        <th>تعديل</th>
+
+                        <th>حذف</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lstBlogImages)
+                    {
+
+                        <tr>
+                            <td>@Model.lstBlogs.Where(A=> A.BlogId == item.BlogId).FirstOrDefault().BlogTitle</td>
+                            <td style="width:10%">
+
+                                <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.BlogImagePath)" alt="Img placeholder">
+
+
+
+
+
+                            </td>
+                            <td>
+                                @item.OrderNo
+                            </td>
+
+                            <td>
+                                @item.BlogImageMain
+                            </td>
+                            
+
+                            <td>
+                                <a asp-area="Admin" asp-controller="BlogImage" asp-action="Form" asp-route-id="@item.BlogImageId" class="btn btn-info text-white" style="cursor:pointer">
+                                    التفاصيل
+                                </a>
+
+                            </td>
+                            <td>
+                                <a asp-area="Admin" asp-controller="BlogImage" asp-action="Form" asp-route-id="@item.BlogImageId" class="btn btn-info text-white" style="cursor:pointer">
+                                    تعديل
+                                </a>
+                            </td>
+                            <td>
+                                <a asp-area="Admin" asp-controller="BlogImage" asp-action="Delete" asp-route-id="@item.BlogImageId" class="btn btn-danger text-white" style="cursor:pointer">
+                                    حذف
+                                </a>
+                            </td>
+
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal to add new record -->
+    <div class="offcanvas offcanvas-end" id="add-new-record">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+            <button type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+
+    </div>
+    <!--/ DataTable with Buttons -->
+
+    <hr class="my-5" />
+
+
+    <!--/ Content -->
+</div>

@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_Layout1";
+}
+@model IndexHomePageModel
+
+
+
+
+
+<!-- End of Header -->
+        <main class="main">
+
+            <section style="background-color: #063a67;">
+                <div class="tab tab-vertical row gutter-lg">
+                    <div class="tab-content mb-6">
+                        <div class="tab-pane active in" id="account-dashboard">
+                          <div class="row pl-2 pr-2">
+                            <div class="col-lg-9">
+                            <h3 class="text-white">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? @Model.lstFaqs.FirstOrDefault().FaqsubCategoryNameEn : @Model.lstFaqs.FirstOrDefault().FaqsubCategoryName)</h3>
+                              <div class="category-content">
+                                <ul class="category-list">
+                                    @foreach(var item in Model.lstFaqs) 
+                                    {
+                                        <li><a asp-controller="Faq" asp-action="QuestionDetails" asp-route-id="@item.Faqid">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.FaqquestionEn : item.Faqquestion)</a></li>
+
+                                    }
+                                   
+                                   
+                                </ul>
+                            </div>
+                            </div>
+                            <div class="col-lg-3 pt-2 pb-2">
+                              <form method="get" action="#" class="header-search hs-expanded hs-round input-wrapper">
+                                <input type="text" class="form-control" name="search" id="search" placeholder="Search Faq for answers" required="" fdprocessedid="gfbmih">
+
+                                </button>
+                            </form>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+           
+        </main>
+ 
+
+  
+
+
+

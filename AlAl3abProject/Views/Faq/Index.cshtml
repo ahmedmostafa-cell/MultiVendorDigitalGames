@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_Layout1";
+}
+@model IndexHomePageModel
+   
+
+
+
+   
+
+
+        <section style="background-color: #095494;height: 285px;">
+            <div class="container">
+        <h1 class="text-center text-white pt-10 mt-0">@AlAl3abProject.Resources.ResWebsite.lbWhatdo </h1>
+                <form method="get" action="#" class="header-search hs-expanded hs-round d-md-flex input-wrapper">
+            <input type="text" class="form-control" name="search" id="search" placeholder="@AlAl3abProject.Resources.ResWebsite.lbSearchFaq " required="" fdprocessedid="gfbmih">
+                    <button class="btn btn-search" type="submit" fdprocessedid="56zn0w">
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section style="background-color: #063a67;">
+            <div class="tab tab-vertical row gutter-lg">
+                <div class="tab-content mb-6">
+                    <div class="tab-pane active in" id="account-dashboard">
+                        <div class="row pl-2 pr-2">
+                            @foreach(var item in Model.lstFaqcategories) 
+                            {
+                        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 mb-4">
+                            <a asp-controller="Faq" asp-action="DigitalProducts" asp-route-id="@item.FaqcategoryId" class="link-to-tab">
+                                <div class="icon-box text-center">
+                                    <a asp-controller="Faq" asp-action="DigitalProducts" asp-route-id="@item.FaqcategoryId"><img src="https://eneba-physical-faq-cdn.s3.amazonaws.com/section/c60477d2-f021-4399-acf7-ac6576006c43.svg" alt=""></a>
+                                    <div class="icon-box-content">
+                                        <a asp-controller="Faq" asp-action="DigitalProducts" asp-route-id="@item.FaqcategoryId"><p class=" mb-0"> @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.FaqcategoryNameEn : item.FaqcategoryName)</p></a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                            }
+                          
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+       
+   
+   

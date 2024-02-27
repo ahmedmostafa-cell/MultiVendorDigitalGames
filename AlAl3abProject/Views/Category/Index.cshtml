@@ -1,0 +1,689 @@
+﻿@{
+    Layout = "_Layout1";
+}
+@model IndexHomePageModel
+        <!-- Start of Main -->
+        <main class="main" style="background-color: #095494;">
+            <!-- Start of Breadcrumb -->
+            <nav class="breadcrumb-nav pb-0 mb-4">
+                <div class="container">
+                  @*  <ul class="breadcrumb bb-no">
+                        <li><a href="index.html">Store</a>
+</li>
+                        <li><a href="shop-banner-sidebar.html">Shop</a></li>
+                        <li>4 Columns</li>
+                    </ul>*@
+                </div>
+            </nav>
+            <!-- End of Breadcrumb -->
+
+            <!-- Start of Page Content -->
+            <div class="page-content">
+                <div class="container" style="max-width: 1282px;">
+            <h3 class="text-white">@AlAl3abProject.Resources.ResWebsite.lbBuy2</h3>
+                    <div class="shop-content row gutter-lg mb-10">
+                        <!-- Start of Sidebar, Shop Sidebar -->
+                        <aside class="sidebar shop-sidebar sticky-sidebar-wrapper sidebar-fixed">
+                            <!-- Start of Sidebar Overlay -->
+                            <div class="sidebar-overlay"></div>
+                            <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+
+                            <!-- Start of Sidebar Content -->
+                            <div class="sidebar-content scrollable">
+                                <!-- Start of Sticky Sidebar -->
+                                <div class="sticky-sidebar">
+                                    <div class="filter-actions">
+                                        <label>@AlAl3abProject.Resources.ResWebsite.lbFilter </label>
+                                <a id="my-button" class="btn btn-white btn-link filter-clean">@AlAl3abProject.Resources.ResWebsite.lbClean </a>
+                                    </div>
+                                    <div class="widget widget-collapsible">
+                                <h3 class="widget-title" style="border-bottom: 0px solid #eee;"><span>@AlAl3abProject.Resources.ResWebsite.lbProduct </span></h3>
+                                        <div class="widget-body">
+                                            <form method="get" action="#"
+                                                class="header-search mb-0 w-30 hs-round d-none d-md-flex input-wrapper">
+                                                <input type="text" class="form-control" name="search" id="searchInput"
+                                                    placeholder="@AlAl3abProject.Resources.ResWebsite.lbSearchbyproduct" required=""
+                                                    fdprocessedid="0k8avr">
+                                                <button class="btn btn-search" type="submit" fdprocessedid="c1gqdd"><i
+                                                        class="w-icon-search"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget widget-collapsible">
+                                <h3 class="widget-title"><span>@AlAl3abProject.Resources.ResWebsite.lbPrice</span><span class="toggle-btn"></span></h3>
+                                        <div class="widget-body">
+                                            <form class="price-range">
+                                                <input type="number" id="minPrice" name="min_price" class="min_price text-center"
+                                                    placeholder="$@AlAl3abProject.Resources.ResWebsite.lbminu" fdprocessedid="6qi8w"><span class="delimiter">-</span><input id="maxPrice" type="number" name="max_price"
+                                                                                                                                                                       class="max_price text-center" placeholder="$@AlAl3abProject.Resources.ResWebsite.lbmax"
+                                                    fdprocessedid="n64xvg">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="widget widget-collapsible">
+                                <h3 class="widget-title"><span>@AlAl3abProject.Resources.ResWebsite.lbCountry</span><span class="toggle-btn"></span></h3>
+                                        <div class="widget-body">
+                                            <select id="country" name="orderby" class="form-control" style="background-color: #021A2F;border: 0px;box-shadow: inset 0 1px 3px #021A2F;color: #fff;" fdprocessedid="5l6pv9">
+                                                <option selected=""  value="0">@AlAl3abProject.Resources.ResWebsite.lbAllcountries</option>
+                                            @foreach(var item in Model.LstCountries) 
+                                            {
+                                            <option value="@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.CountryNameEn.ToLower() : item.CountryName.ToLower())">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.CountryNameEn.ToLower() : item.CountryName.ToLower())</option>
+                                            }
+                                           
+                                           
+                                            </select>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title"><span>@AlAl3abProject.Resources.ResWebsite.lbType</span><span class="toggle-btn"></span></h3>
+                                        <ul class="widget-body filter-items item-check mt-1">
+                                           @foreach(var item in Model.lstTypes) 
+                                           {
+                                               <li>
+                                                   <label>
+                                                <input type="checkbox" name="gender" value="@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.TypeTitleEn : item.TypeTitle)"> @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.TypeTitleEn : item.TypeTitle)
+                                            </label>
+                                                </li>
+                                           }
+                                            
+                                            
+                                           
+                                        </ul>
+                                    </div>
+
+                                    <div class="widget widget-collapsible">
+                                <h3 class="widget-title"><span>@AlAl3abProject.Resources.ResWebsite.lbOperating </span><span class="toggle-btn"></span></h3>
+                                        <ul class="widget-body filter-items item-check mt-1">
+                                            @foreach(var item in Model.lstOperatingSystems) 
+                                            {
+                                                 <li>
+                                                   <label>
+                                                <input type="checkbox" name="gender2" value="@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.OperatingSystemNameEn.ToLower() : item.OperatingSystemName.ToLower())">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.OperatingSystemNameEn.ToLower() : item.OperatingSystemName.ToLower())
+                                                    </label>
+                                                </li>
+                                            }
+                                            
+                                        </ul>
+                                    </div>
+
+                                    <div class="widget widget-collapsible">
+                                        <h3 class="widget-title"><span>@AlAl3abProject.Resources.ResWebsite.lbPlatforms</span><span class="toggle-btn"></span></h3>
+                                        <form method="get" action="#" class="header-search mb-0 w-30 hs-round d-none d-md-flex input-wrapper">
+                                    <input type="text" class="form-control" id="searchInput3" name="search"  placeholder="@AlAl3abProject.Resources.ResWebsite.lbSearchbyplatform " required="" fdprocessedid="0k8avr">
+                                            <button class="btn btn-search" type="submit" fdprocessedid="c1gqdd"><i class="w-icon-search"></i>
+                                            </button>
+                                        </form>
+                                        <ul class="widget-body filter-items item-check mt-1">
+                                    @foreach (var item in Model.lstSubCategories) 
+                                    {
+                                         <li>
+                                                   <label>
+                                                <input type="checkbox" name="gender3" value="@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.SubCategoryTitleEn.ToLower() : item.SubCategoryTitle.ToLower())">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.SubCategoryTitleEn.ToLower() : item.SubCategoryTitle.ToLower())
+                                                    </label>
+                                                </li>
+                                    }
+                                           
+                                        </ul>
+                                    </div>
+
+                                   
+
+                                    <div class="widget widget-collapsible">
+                                <h3 class="widget-title"><span>@AlAl3abProject.Resources.ResWebsite.lbRegions</span><span class="toggle-btn"></span></h3>
+                                        <form method="get" action="#" class="header-search mb-0 w-30 hs-round d-none d-md-flex input-wrapper">
+                                    <input type="text" class="form-control" name="search" id="searchInput1" placeholder="@AlAl3abProject.Resources.ResWebsite.lbSearchbyregion" required="" fdprocessedid="0k8avr">
+                                            <button class="btn btn-search" type="submit" fdprocessedid="c1gqdd"><i class="w-icon-search"></i>
+                                            </button>
+                                        </form>
+                                        <ul class="widget-body filter-items item-check mt-1">
+                                            @foreach(var item in Model.lstRegions) 
+                                            {
+                                                       <li>
+                                                            <label>
+                                                <input type="checkbox" name="gender1" value="@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionNameEn.ToLower() : item.RegionName.ToLower())">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionNameEn.ToLower() : item.RegionName.ToLower())
+                                                            </label>
+                                                        </li>
+
+                                            }
+                             
+                                    
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End of Sidebar Content -->
+                            </div>
+                            <!-- End of Sidebar Content -->
+                        </aside>
+                        <!-- End of Shop Sidebar -->
+
+                        <!-- Start of Shop Main Content -->
+                        <div class="main-content">
+                            <div class="sticky-content-wrapper" style="">
+                                <nav class="toolbox sticky-toolbox sticky-content fix-top" style="">
+                                    <div class="toolbox-left">
+                                        <a href="#" class="btn btn-primary btn-outline btn-rounded left-sidebar-toggle 
+                                        btn-icon-left d-block d-lg-none"><i
+                                                class="w-icon-category"></i><span>Filters</span></a>
+                                <p class="text-white">@AlAl3abProject.Resources.ResWebsite.lbResults: @Model.lstItemSellersFinal.Count()</p>
+
+                                    </div>
+                                     <div class="toolbox-right">
+                  <div class="toolbox-item toolbox-sort select-box text-dark">
+                    <select  id="my-select" class="form-control" fdprocessedid="kz1etm">
+
+                                        <option value="lowprice">@AlAl3abProject.Resources.ResWebsite.lbLow </option>
+                                        <option value="highprice">@AlAl3abProject.Resources.ResWebsite.lbhigh </option>
+                                        <option value="newdate">@AlAl3abProject.Resources.ResWebsite.lbNewest </option>
+                                        <option value="olddate">@AlAl3abProject.Resources.ResWebsite.lbOldest </option>
+                                        <option value="alphabeta">@AlAl3abProject.Resources.ResWebsite.lbA</option>
+                                        <option value="alphabetz">@AlAl3abProject.Resources.ResWebsite.lbZ</option>
+                    </select>
+                </div>
+                </div>
+                                </nav>
+                            </div>
+                            <div class="product-wrapper row cols-lg-4 cols-md-3 cols-sm-2 cols-2">
+                                @foreach(var item in Model.lstItemSellersFinal) 
+                                {
+                                    <div class="product-wrap">
+                                        
+
+
+
+                                                  <div class="product text-center">
+                                                            <figure class="product-media">
+                                                                <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                                                    <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225"
+                                                                     style="height: 290px;">
+                                                                </a>
+                                                            </figure>
+                                                            <a href="@Url.Action("AddToWishList", "Wishlist", new {  itemSellerId = item.ItemSellerId })" ><i class="btn-product-iconheart  w-icon-heart"></i></a>
+                                          
+
+                                                            <a href="#">
+                                                                <div class="product-details" style="background-color: #021A2F;">
+                                                                    <h3 class="product-name text-white">
+                                                                        <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white">
+                                                                            @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)
+                                                
+                                                                        </a>
+                                                                    </h3>
+                                                                    <input id="typeid" type="hidden" value="@ViewBag.type" />
+                                                                    <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                                                        <div class="product-cat mb-0">
+                                                                            <table>
+                                                                                <tr>
+
+                                                                                    <td>@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? Model.lstTypes.Where(a => a.TypeId == Guid.Parse(ViewBag.type)).FirstOrDefault().TypeTitleEn : Model.lstTypes.Where(a => a.TypeId == Guid.Parse(ViewBag.type)).FirstOrDefault().TypeTitle)</td>
+                                                                                    <td>@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.Region)</td>
+                                                                                    <td>@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? Model.lstItems.Where(a => a.ItemId == item.ItemId).FirstOrDefault().WorksOnEn : Model.lstItems.Where(a => a.ItemId == item.ItemId).FirstOrDefault().WorksOn)</td>
+                                                                                    <td>@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)</td>
+                                                                                    <td>@item.ItemSalePrice</td>
+                                                                                    <td>@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.CountryNameEn : item.CountryName)</td>
+                                                                                     @foreach (var element in Model.lstItemSubCategory.Where(a=> a.ItemId == item.ItemId)) 
+                                                                                     {
+
+                                                                                        <td class="subcategory">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? Model.lstSubCategories.Where(a => a.SubCategoryId == element.SubCategoryId).FirstOrDefault().SubCategoryTitleEn.ToLower() : Model.lstSubCategories.Where(a=> a.SubCategoryId == element.SubCategoryId).FirstOrDefault().SubCategoryTitle.ToLower())</td>
+                                                                                     }
+                                                                                   
+                                                                                </tr>
+                                                                            </table>
+                                                                          
+                                                                        </div>
+                                                                      
+                                                                        <div class="ratings-container">
+                                                                            <p class="mt-0 mb-0 text-white w-icon-heart"> @item.NumberOfAddFavourite</p>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </a>
+                                            
+                                                  </div>
+                                           
+                            
+                                      
+
+                                    </div>
+                                }
+                             
+                            </div>
+
+                            <div class="toolbox toolbox-pagination justify-content-between">
+                                <p class="showing-info mb-2 mb-sm-0">
+                                    Showing<span>1-12 of 60</span>Products
+                                </p>
+                                <ul class="pagination">
+                                    <li class="prev disabled">
+                                        <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                            <i class="w-icon-long-arrow-left"></i>Prev
+                                        </a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="next">
+                                        <a href="#" aria-label="Next">
+                                            Next<i class="w-icon-long-arrow-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End of Shop Main Content -->
+                    </div>
+                    <!-- End of Shop Content -->
+                </div>
+
+            
+            </div>
+            <!-- End of Page Content -->
+
+
+
+
+   
+
+        </main>
+        <!-- End of Main -->
+<script src="~/js/categoryfilter.js"></script>
+<script>
+    const checkboxes = document.querySelectorAll('input[type=checkbox][name=gender]');
+    const rows = document.getElementsByTagName('tr');
+    console.log(checkboxes);
+     console.log(rows);
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+            const selectedFilters = Array.from(checkboxes)
+                .filter((c) => c.checked)
+                .map((c) => c.value);
+            console.log(selectedFilters);
+
+            Array.from(rows).forEach((row) => {
+                const cells = row.getElementsByTagName('td');
+                 console.log(cells);
+                if (cells.length > 0) {
+                    const gender = cells[0].textContent;
+                   
+                    const shouldBeVisible = selectedFilters.length === 0 || selectedFilters.includes(gender);
+                   
+                    console.log("parentElement");
+                    console.log(row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+                    row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible ? '' : 'none';
+                }
+            });
+        });
+    });
+
+        </script>
+
+
+<script>
+    const checkboxes1 = document.querySelectorAll('input[type=checkbox][name=gender1]');
+    const rows1 = document.getElementsByTagName('tr');
+    console.log(checkboxes1);
+    console.log(rows1);
+    checkboxes1.forEach((checkbox) => {
+       
+        checkbox.addEventListener('change', () => {
+            const selectedFilters1 = Array.from(checkboxes1)
+                .filter((c) => c.checked)
+                .map((c) => c.value);
+            console.log(selectedFilters1);
+          
+            Array.from(rows1).forEach((row) => {
+                const cells1 = row.getElementsByTagName('td');
+                console.log(cells1);
+                if (cells1.length > 0) {
+                    const gender1 = cells1[1].textContent.toLowerCase();
+                 
+                    const shouldBeVisible1 = selectedFilters1.length === 0 || selectedFilters1.includes(gender1);
+                  
+                    console.log("parentElement");
+                    console.log(row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+                    row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible1 ? '' : 'none';
+                }
+            });
+        });
+    });
+
+</script>
+
+
+
+
+<script>
+    const checkboxes2 = document.querySelectorAll('input[type=checkbox][name=gender2]');
+    const rows2 = document.getElementsByTagName('tr');
+    console.log(checkboxes2);
+    console.log(rows2);
+    checkboxes2.forEach((checkbox) => {
+      
+        checkbox.addEventListener('change', () => {
+            const selectedFilters2 = Array.from(checkboxes2)
+                .filter((c) => c.checked)
+                .map((c) => c.value);
+            console.log(selectedFilters2);
+
+            Array.from(rows2).forEach((row) => {
+                const cells2 = row.getElementsByTagName('td');
+              
+                console.log(cells2);
+                if (cells2.length > 0) {
+                    const gender2 = cells2[2].textContent.toLowerCase();
+                 
+                    const shouldBeVisible2 = selectedFilters2.length === 0 || selectedFilters2.includes(gender2);
+                
+                    console.log("parentElement");
+                    console.log(row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+                    row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible2 ? '' : 'none';
+                }
+            });
+        });
+
+
+     
+    });
+
+</script>
+
+
+
+
+<script>
+    const checkboxes3 = document.querySelectorAll('input[type=checkbox][name=gender3]');
+    const rows3 = document.getElementsByTagName('tr');
+    console.log(checkboxes3);
+    console.log(rows3);
+    checkboxes3.forEach((checkbox) => {
+
+        checkbox.addEventListener('change', () => {
+            const selectedFilters3 = Array.from(checkboxes3)
+                .filter((c) => c.checked)
+                .map((c) => c.value);
+            console.log(selectedFilters3);
+
+            Array.from(rows3).forEach((row) => {
+                const cells3 = row.getElementsByClassName('subcategory');
+
+                console.log(cells3);
+                if (cells3.length > 0) 
+                {
+                    for (let i = 0; i < cells3.length; ++i) {
+                        const gender3 = cells3[i].textContent.trim();
+                        console.log(gender3);
+                        if(selectedFilters3.length !==0) 
+                        {
+                            for (let k = 0; k < selectedFilters3.length; ++k) {
+                                const shouldBeVisible3 = selectedFilters3.length === 0 || selectedFilters3[k].includes(gender3);
+                                if (shouldBeVisible3 === true) {
+                                    console.log("parentElement");
+                                    console.log(row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+                                    row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible3 ? '' : 'none';
+                                    return;
+
+                                }
+                                console.log("parentElement");
+                                console.log(row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+                                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible3 ? '' : 'none';
+
+                            }
+                        }
+                        else 
+                        {
+                            row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display ='';
+
+                        }
+                      
+
+
+                    }
+
+                }
+                
+                  
+                   
+               
+            });
+        });
+    });
+
+</script>
+
+<script>
+    // JavaScript code
+    const searchInput2 = document.getElementById('searchInput');
+  
+    const rows4 = document.getElementsByTagName('tr');
+
+    searchInput2.addEventListener('input', () => {
+        const searchTerm = searchInput2.value.toLowerCase();
+     
+        console.log(rows4)
+        Array.from(rows4).forEach((row) => {
+            const cells4 = row.getElementsByTagName('td');
+            console.log(cells4);
+          
+                const gender4 = cells4[3].textContent.toLowerCase();
+               
+            if (gender4.includes(searchTerm)) {
+                    row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display ='';
+                } else {
+                     row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display ='none';
+                }
+              
+            
+        });
+    });
+</script>
+
+
+<script>
+    // JavaScript code
+    const searchInput1 = document.getElementById('searchInput1');
+
+    const rows40 = document.getElementsByTagName('tr');
+
+    searchInput1.addEventListener('input', () => {
+        const searchTerm40 = searchInput1.value.toLowerCase();
+
+        console.log(rows40)
+        Array.from(rows40).forEach((row) => {
+            const cells40 = row.getElementsByTagName('td');
+            console.log(cells40);
+
+            const gender40 = cells40[1].textContent.toLowerCase();
+
+            if (gender40.includes(searchTerm40)) {
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = '';
+            } else {
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+            }
+
+
+        });
+    });
+</script>
+
+
+
+<script>
+    // JavaScript code
+    const searchInput50 = document.getElementById('searchInput3');
+  
+   
+    const rows50 = document.getElementsByTagName('tr');
+
+    searchInput50.addEventListener('input', () => {
+        const searchTerm50 = searchInput50.value.toLowerCase();
+        console.log(searchInput50);
+      
+      
+
+
+
+        Array.from(rows50).forEach((row) => {
+            const cells50 = row.getElementsByClassName('subcategory');
+
+           
+            if (cells50.length > 0) {
+                for (let i = 0; i < cells50.length; ++i) {
+                    const gender50 = cells50[i].textContent.trim().toLowerCase();
+                    console.log(searchTerm50);
+                    console.log(gender50);
+
+
+                    const shouldBeVisible50 = gender50.includes(searchTerm50);
+                    console.log(shouldBeVisible50);
+                    if (shouldBeVisible50 === true) {
+                      
+                        console.log(row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement);
+                        row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible50 ? '' : 'none';
+                        return;
+
+                    }
+                    else 
+                    {
+                        row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = shouldBeVisible50 ? '' : 'none';
+                    }
+                           
+
+                        
+                    
+                       
+
+                   
+
+
+
+                }
+
+            }
+
+
+
+
+        });
+    });
+</script>
+
+
+
+<script>
+    // JavaScript code
+    const minPrice = document.getElementById('minPrice');
+  
+
+    const rows5 = document.getElementsByTagName('tr');
+    console.log(rows5)
+    minPrice.addEventListener('input', () => {
+        const searchminPrice = minPrice.value;
+        
+       
+        Array.from(rows5).forEach((row) => {
+            const cells5 = row.getElementsByTagName('td');
+            console.log(row);
+
+            const gender5 = cells5[4].textContent;
+            console.log(gender5);
+            if (parseInt(searchminPrice) <= parseInt(gender5)) {
+                  console.log("true");
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = '';
+            } else {
+                 console.log("false");
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+            }
+
+
+        });
+    });
+</script>
+
+
+
+
+<script>
+    // JavaScript code
+   
+    const maxPrice = document.getElementById('maxPrice');
+
+    const rows6 = document.getElementsByTagName('tr');
+    console.log(rows6)
+    maxPrice.addEventListener('input', () => {
+       
+        const searchmaxPrice = maxPrice.value;
+
+
+        Array.from(rows6).forEach((row) => {
+            const cells6 = row.getElementsByTagName('td');
+            console.log(row);
+
+            const gender6 = cells6[4].textContent;
+            console.log(gender6);
+            if (parseInt(searchmaxPrice) >= parseInt(gender6)) {
+                console.log("true");
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = '';
+            } else {
+                console.log("false");
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+            }
+
+
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    // JavaScript code
+    const selectElement = document.querySelector('select');
+    const rows7 = document.getElementsByTagName('tr');
+    selectElement.addEventListener('change', (event) => {
+        const selectedValue = event.target.value.toLowerCase();
+        console.log(`Selected value: ${selectedValue}`);
+      
+        Array.from(rows7).forEach((row) => {
+            const cells7 = row.getElementsByTagName('td');
+            console.log(cells7);
+           
+            const gender7 = cells7[5].textContent.toLowerCase();
+           
+            if (gender7.includes(selectedValue)) {
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = '';
+            } else if(selectedValue ==="0") {
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = '';
+            }
+                else {
+                row.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+            }
+
+
+        });
+    });
+
+  
+
+   
+
+  
+</script>
+
+<script>
+    const myButton = document.getElementById('my-button');
+
+    myButton.addEventListener('click', function () {
+        location.reload();
+    });
+    localStorage.setItem("myKey", @ViewBag.type);
+</script>
+
+   

@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="lbA" xml:space="preserve">
+    <value>ابجدي من الالف الي الياء</value>
+  </data>
+  <data name="lbAboutBenzoo" xml:space="preserve">
+    <value>عن بنزو</value>
+  </data>
+  <data name="lbAboutUs" xml:space="preserve">
+    <value>ماذا عنا</value>
+  </data>
+  <data name="lbAccount" xml:space="preserve">
+    <value>الاكونت</value>
+  </data>
+  <data name="lbAdd" xml:space="preserve">
+    <value>اضف ال عربة التسوق</value>
+  </data>
+  <data name="lbAddress" xml:space="preserve">
+    <value>عنوان المنزل</value>
+  </data>
+  <data name="lbAllcountries" xml:space="preserve">
+    <value>جميع الدول</value>
+  </data>
+  <data name="lbBasicinformation" xml:space="preserve">
+    <value>المعلومات الاساسية</value>
+  </data>
+  <data name="lbBecomeourregistereduserorlogin" xml:space="preserve">
+    <value>سجل كتاجر او قم بالدخول بالكونت</value>
+  </data>
+  <data name="lbBenzooisone" xml:space="preserve">
+    <value>Benzoo هو أحد أكبر متاجر الألعاب وأكثرها ثقة في العالم!</value>
+  </data>
+  <data name="lbBest" xml:space="preserve">
+    <value>الاعلي مبيعا اي جيفت كارت</value>
+  </data>
+  <data name="lbBestselling" xml:space="preserve">
+    <value>الاعلي مبيعا جيفت كارت</value>
+  </data>
+  <data name="lbBlog" xml:space="preserve">
+    <value>مدونة</value>
+  </data>
+  <data name="lbBrowse" xml:space="preserve">
+    <value>البحث ف التاجات</value>
+  </data>
+  <data name="lbBUSINESSADDRESS" xml:space="preserve">
+    <value>عنوان العمل</value>
+  </data>
+  <data name="lbBUSINESSDETAILS" xml:space="preserve">
+    <value>تفاصيل العمل</value>
+  </data>
+  <data name="lbBusinessDevelopment" xml:space="preserve">
+    <value>للعمل سويا</value>
+  </data>
+  <data name="lbBuy" xml:space="preserve">
+    <value>شراء</value>
+  </data>
+  <data name="lbBuy2" xml:space="preserve">
+    <value>اشتري العاب الكترونية</value>
+  </data>
+  <data name="lbCheckout" xml:space="preserve">
+    <value>الدفع</value>
+  </data>
+  <data name="lbcity" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="lbClean" xml:space="preserve">
+    <value>الغاء فلاتر</value>
+  </data>
+  <data name="lbClose" xml:space="preserve">
+    <value>غلق</value>
+  </data>
+  <data name="lbContact" xml:space="preserve">
+    <value>......تواصل معنا</value>
+  </data>
+  <data name="lbContinue" xml:space="preserve">
+    <value>الخطوة القادمة</value>
+  </data>
+  <data name="lbCopyright" xml:space="preserve">
+    <value>جميع الحقوق محفوظة رؤية برمجية 2023</value>
+  </data>
+  <data name="lbCountry" xml:space="preserve">
+    <value>الدول</value>
+  </data>
+  <data name="lbCreateanaccount" xml:space="preserve">
+    <value>تسجيل اكونت</value>
+  </data>
+  <data name="lbCreateaticket" xml:space="preserve">
+    <value>انشاء تيكيت</value>
+  </data>
+  <data name="lbDashBoard" xml:space="preserve">
+    <value>لوحة التحكم</value>
+  </data>
+  <data name="lbDateofbirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="lbDigitalproducts" xml:space="preserve">
+    <value>المنتجات الالكترونية</value>
+  </data>
+  <data name="lbDocuments" xml:space="preserve">
+    <value>الوثائق</value>
+  </data>
+  <data name="lbEmailaddress" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+  </data>
+  <data name="lbEsports" xml:space="preserve">
+    <value>الالعاب الرياضية</value>
+  </data>
+  <data name="lbFaq" xml:space="preserve">
+    <value>الاسئلة الشائعة</value>
+  </data>
+  <data name="lbFeatures" xml:space="preserve">
+    <value>الخصائص</value>
+  </data>
+  <data name="lbFilloutKYCform" xml:space="preserve">
+    <value>املا الفورم</value>
+  </data>
+  <data name="lbFilter" xml:space="preserve">
+    <value>فلتر</value>
+  </data>
+  <data name="lbfrom" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="lbFullname" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="lbFullnameen" xml:space="preserve">
+    <value>الاسم الكامل الانجليزي</value>
+  </data>
+  <data name="lbGame" xml:space="preserve">
+    <value>الاعلي الالعاب</value>
+  </data>
+  <data name="lbGotQuestion" xml:space="preserve">
+    <value>لو عندك سؤال اتصل بنا 24/7</value>
+  </data>
+  <data name="lbHello" xml:space="preserve">
+    <value>اهلا</value>
+  </data>
+  <data name="lbHelp" xml:space="preserve">
+    <value>المساعدة</value>
+  </data>
+  <data name="lbhigh" xml:space="preserve">
+    <value>من الاعلي سعرا الي الاقل</value>
+  </data>
+  <data name="lbHowtobuy" xml:space="preserve">
+    <value>كيف تقوم الشراء</value>
+  </data>
+  <data name="lbHowtostart" xml:space="preserve">
+    <value>كيف ابدا</value>
+  </data>
+  <data name="lbIncrease" xml:space="preserve">
+    <value>زيادة وصول منتجاتك مع Eneba يمكنك بيع المزيد.</value>
+  </data>
+  <data name="lbISSUES" xml:space="preserve">
+    <value>مشاكل</value>
+  </data>
+  <data name="lbLatest" xml:space="preserve">
+    <value>الحديث</value>
+  </data>
+  <data name="lbLegalDepartment" xml:space="preserve">
+    <value>للشؤون القانونية</value>
+  </data>
+  <data name="lbLoad" xml:space="preserve">
+    <value>تحميل اكتر</value>
+  </data>
+  <data name="lbLogIn" xml:space="preserve">
+    <value>الدخول</value>
+  </data>
+  <data name="lbLow" xml:space="preserve">
+    <value>من الاقل سعرا الي الاعلي</value>
+  </data>
+  <data name="lbmax" xml:space="preserve">
+    <value>الي</value>
+  </data>
+  <data name="lbminu" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="lbNewest" xml:space="preserve">
+    <value>من الاحدث الي الاقدم</value>
+  </data>
+  <data name="lbNews" xml:space="preserve">
+    <value>اخبار</value>
+  </data>
+  <data name="lbOfferDetails" xml:space="preserve">
+    <value>تفاصيل العرض</value>
+  </data>
+  <data name="lbOldest" xml:space="preserve">
+    <value>من الاقدم الي الاحدث</value>
+  </data>
+  <data name="lbOperating" xml:space="preserve">
+    <value>نظام التشغيل</value>
+  </data>
+  <data name="lbOurCategories" xml:space="preserve">
+    <value>الفئات</value>
+  </data>
+  <data name="lbPERSONALDETAILS" xml:space="preserve">
+    <value>البيانات الشخصية</value>
+  </data>
+  <data name="lbPhonenumber" xml:space="preserve">
+    <value>رقم التليفون</value>
+  </data>
+  <data name="lbPlatforms" xml:space="preserve">
+    <value>البلاتفورم</value>
+  </data>
+  <data name="lbPlease" xml:space="preserve">
+    <value>من فضلك</value>
+  </data>
+  <data name="lbPopular" xml:space="preserve">
+    <value>المشهور</value>
+  </data>
+  <data name="lbPrice" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="lbProduct" xml:space="preserve">
+    <value>اسم اللعبة</value>
+  </data>
+  <data name="lbPURCHASE" xml:space="preserve">
+    <value>الشراء؟</value>
+  </data>
+  <data name="lbratings" xml:space="preserve">
+    <value>اجمالي عدد التقييمات</value>
+  </data>
+  <data name="lbRecommended" xml:space="preserve">
+    <value>يوصي به</value>
+  </data>
+  <data name="lbRegions" xml:space="preserve">
+    <value>البقعة الجغرافية</value>
+  </data>
+  <data name="lbRegister" xml:space="preserve">
+    <value>مستخدم جديد</value>
+  </data>
+  <data name="lbResults" xml:space="preserve">
+    <value>عدد الالعاب</value>
+  </data>
+  <data name="lbSaveforlater" xml:space="preserve">
+    <value>احفظ ما سجلت وكمل لاحقا</value>
+  </data>
+  <data name="lbSearchbyplatform" xml:space="preserve">
+    <value>ابحث بالبلاتفورم</value>
+  </data>
+  <data name="lbSearchbyproduct" xml:space="preserve">
+    <value>ابحث باسم اللعبة</value>
+  </data>
+  <data name="lbSearchbyregion" xml:space="preserve">
+    <value>ابحث بالبقعة الجغرافية</value>
+  </data>
+  <data name="lbSearchFaq" xml:space="preserve">
+    <value>ابحث عن الاسئلة الشائعة</value>
+  </data>
+  <data name="lbSearchIn" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="lbSellmoregames" xml:space="preserve">
+    <value>قم ببيع لعب اكثر</value>
+  </data>
+  <data name="lbSellonBenzoo" xml:space="preserve">
+    <value>قم بالبيع عل بنزو</value>
+  </data>
+  <data name="lbSetupyourpayments" xml:space="preserve">
+    <value>جهز بيانات الدفع</value>
+  </data>
+  <data name="lbShoppingCart" xml:space="preserve">
+    <value>سلة التسوق</value>
+  </data>
+  <data name="lbsocial" xml:space="preserve">
+    <value>وسائل التواصل الاجتماعي</value>
+  </data>
+  <data name="lbStart" xml:space="preserve">
+    <value>اشتغل كتاجر</value>
+  </data>
+  <data name="lbStill" xml:space="preserve">
+    <value>هل لديك اسئلة اخري؟</value>
+  </data>
+  <data name="lbSubtotal" xml:space="preserve">
+    <value>الاجمالي</value>
+  </data>
+  <data name="lbTalentteam" xml:space="preserve">
+    <value>للحصول عل وظيفة لدينا</value>
+  </data>
+  <data name="lbTaxidentificationnumber" xml:space="preserve">
+    <value>رقم التعريف الضريبي</value>
+  </data>
+  <data name="lbThebestway" xml:space="preserve">
+    <value>افضل طريقة للحل هو</value>
+  </data>
+  <data name="lbtolearn" xml:space="preserve">
+    <value>لمعرفة المزيد عن الخدمة.</value>
+  </data>
+  <data name="lbTradename" xml:space="preserve">
+    <value>الاسم التجاري</value>
+  </data>
+  <data name="lbTradeReferences" xml:space="preserve">
+    <value>المعلومات التجارية</value>
+  </data>
+  <data name="lbTrending" xml:space="preserve">
+    <value>التريند</value>
+  </data>
+  <data name="lbType" xml:space="preserve">
+    <value>نوع اللعبة</value>
+  </data>
+  <data name="lbUpcoming" xml:space="preserve">
+    <value>الالعاب الحديثة</value>
+  </data>
+  <data name="lbVATnumber" xml:space="preserve">
+    <value>رقم الضريبة المضافة</value>
+  </data>
+  <data name="lbViewCart" xml:space="preserve">
+    <value>الذهاب ال عربة التسوق</value>
+  </data>
+  <data name="lbWe" xml:space="preserve">
+    <value>نستخدم بوابات دفع امنة</value>
+  </data>
+  <data name="lbWebsite" xml:space="preserve">
+    <value>الموقع الالكتروني</value>
+  </data>
+  <data name="lbWhatdo" xml:space="preserve">
+    <value>كيف استطيع ان اساعدك</value>
+  </data>
+  <data name="lbZ" xml:space="preserve">
+    <value>ابجدي من الياء الي الالف</value>
+  </data>
+  <data name="lbZIPCODE" xml:space="preserve">
+    <value>الرمز البريدي</value>
+  </data>
+</root>

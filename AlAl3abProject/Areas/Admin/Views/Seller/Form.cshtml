@@ -1,0 +1,368 @@
+﻿@model Domains.TbSeller
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">الوحة التحكم/</span>  اضافة  التجار
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">  التجار</h5>
+                <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Seller" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم التاجر</label>
+                            <select asp-for="CreatedBy" asp-items="@(new SelectList(ViewBag.users , "Id" , "UserName"))"  id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  التاجر المرد تسجيله من المستخدمين</option>
+
+                            </select>
+                            <span asp-validation-for="SellerId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="SellerId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">  اسم التاجر</label>
+                            <input asp-for="SellerFullName" type="text" class="form-control" id="basic-default-fullname" placeholder="    اسم التاجر" />
+                            <span asp-validation-for="SellerFullName" class="text-danger"></span>
+                        </div>
+                         <div class="col-md-12">
+                           
+                            <label class="form-label" for="basic-default-fullname">   اسم التاجر انجليزي</label>
+                            <input asp-for="SellerFullNamen" type="text" class="form-control" id="basic-default-fullname" placeholder="     اسم التاجر انجليزي" />
+                            <span asp-validation-for="SellerFullNamen" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">   نوع الشركة</label>
+                            <input asp-for="CompanyType" type="text" class="form-control" id="basic-default-company" placeholder=" نوع الشركة   " />
+                            <span asp-validation-for="CompanyType" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">   اسم الشركة</label>
+                            <input asp-for="CompanyName" type="text" class="form-control" id="basic-default-company" placeholder="     اسم الشركة" />
+                            <span asp-validation-for="CompanyName" class="text-danger"></span>
+                        </div>
+
+
+                         <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">ملف 1</label>
+                            <input type="file" multiple class="form-control" required name="files" id="selectedFiles">
+                               
+                                <span class="text-danger" id="error1"></span>
+                          
+                         </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">ملف 2</label>
+                            <input type="file" class="form-control"  name="files2" id="selectedFiles">
+
+                            <span class="text-danger" id="error1"></span>
+
+                        </div>
+
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">ملف 3</label>
+                            <input type="file" class="form-control"  name="files3" id="selectedFiles">
+
+                            <span class="text-danger" id="error1"></span>
+
+                        </div>
+
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">ملف 4</label>
+                            <input type="file" class="form-control"  name="files4" id="selectedFiles">
+
+                            <span class="text-danger" id="error1"></span>
+
+                        </div>
+
+
+
+
+                           <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">ملف 5</label>
+                                <input type="file" class="form-control"   name="files5" id="selectedFiles">
+                               
+                                <span class="text-danger" id="error1"></span>
+                          
+                           </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    عدد المنتجات</label>
+                            <input asp-for="NoOfSkus" type="text" class="form-control" id="basic-default-company" placeholder="       عدد المنتجات" />
+                            <span asp-validation-for="NoOfSkus" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم الدولة</label>
+                            <select asp-items="@(new SelectList(ViewBag.countries , "CountryId" , "CountryName"))" asp-for="CountryId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم الدولة</option>
+
+                            </select>
+                            <span asp-validation-for="CountryId" class="text-danger"></span>
+                        </div>
+
+
+
+
+                          <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">     العنوان</label>
+                            <input asp-for="Address" type="text" class="form-control" id="basic-default-company" placeholder="        العنوان" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم المدينة</label>
+                            <select asp-items="@(new SelectList(ViewBag.cities , "CityId" , "CityName"))" asp-for="CityId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم المدينة</option>
+
+                            </select>
+                            <span asp-validation-for="CityId" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">     الرمز البريدي</label>
+                            <input asp-for="ZipCode" type="text" class="form-control" id="basic-default-company" placeholder="       الرمز البريدي" />
+                            <span asp-validation-for="ZipCode" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    انواع المنتجات</label>
+                            <input asp-for="TypesOfItems" type="text" class="form-control" id="basic-default-company" placeholder="         انواع المنتجات" />
+                            <span asp-validation-for="TypesOfItems" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">     تاريخ الميلاد</label>
+                            <input asp-for="DateOfBirth" type="datetime-local" class="form-control" id="basic-default-company" placeholder=" تاريخ الميلاد" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">      الايميل</label>
+                            <input asp-for="SellerEmail" type="email" class="form-control" id="basic-default-company" placeholder="  الايميل" />
+                            <span asp-validation-for="SellerEmail" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">      رقم تليفون</label>
+                            <input asp-for="SellerPhoneNumber" type="number" class="form-control" id="basic-default-company" placeholder="  رقم تليفون" />
+                            <span asp-validation-for="SellerPhoneNumber" class="text-danger"></span>
+                        </div>
+
+
+                       
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم الدولة المقام فيها العمل</label>
+                            <select asp-items="@(new SelectList(ViewBag.countries , "CountryId" , "CountryName"))" asp-for="BusinessCountry" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم الدولة المقام فيها العمل</option>
+
+                            </select>
+                            <span asp-validation-for="CountryId" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">       عنوان المقام فيها العمل</label>
+                            <input asp-for="BusinessAddress" type="text" class="form-control" id="basic-default-company" placeholder="   عنوان المقام فيها العمل" />
+                            <span asp-validation-for="BusinessAddress" class="text-danger"></span>
+                        </div>
+
+
+
+
+
+                         <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم المدينة المقام فيها العمل</label>
+                            <select asp-items="@(new SelectList(ViewBag.cities , "CityId" , "CityName"))" asp-for="BusinessCirtyId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم المدينة المقام فيها العمل</option>
+
+                            </select>
+                            <span asp-validation-for="BusinessCirtyId" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">           الرمز البريدي لمكان العمل</label>
+                            <input asp-for="BusinessZipCode" type="text" class="form-control" id="basic-default-company" placeholder="       الرمز البريدي لمكان العمل" />
+                            <span asp-validation-for="BusinessZipCode" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">   الاسم التجاري للمنشاة     </label>
+                            <input asp-for="BusinessTradeName" type="text" class="form-control" id="basic-default-company" placeholder="  الاسم التجاري للمنشاة   " />
+                            <span asp-validation-for="BusinessTradeName" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  موقع الكتروني للمنشاة   </label>
+                            <input asp-for="BusinessWebsite" type="text" class="form-control" id="basic-default-company" placeholder=" موقع الكتروني للمنشاة  " />
+                            <span asp-validation-for="BusinessWebsite" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    رقم التعريف الضريبي   </label>
+                            <input asp-for="TaxIdentificationNo" type="text" class="form-control" id="basic-default-company" placeholder="   رقم التعريف الضريبي  " />
+                            <span asp-validation-for="TaxIdentificationNo" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  هامش ربح الموقع     </label>
+                            <input asp-for="WbesiteProfitMargin" type="text" class="form-control" id="basic-default-company" placeholder="  هامش ربح الموقع " />
+                            <span asp-validation-for="WbesiteProfitMargin" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">    الرقم المرجعي     </label>
+                            <input asp-for="RefrenceId" type="text" class="form-control" id="basic-default-company" placeholder="    الرقم المرجعي " />
+                            <span asp-validation-for="RefrenceId" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">     رقم الضريبة المضافة     </label>
+                            <input asp-for="VatNumber" type="text" class="form-control" id="basic-default-company" placeholder="     رقم الضريبة المضافة " />
+                            <span asp-validation-for="VatNumber" class="text-danger"></span>
+                        </div>
+
+
+
+                      
+
+
+
+                       
+
+
+
+
+                       
+
+
+
+                     
+
+
+
+                       
+
+
+
+
+                        <div class="pt-4">
+                            <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    <script>
+                //alert("ahmed");
+                const logo = document.getElementById('selectedFile');
+                const license = document.getElementById('selectedFiles');
+                const form = document.getElementById('form')
+                const erroElement = document.getElementById('error')
+                const erroElement1 = document.getElementById('error1')
+        form.addEventListener('submit', (e) => {
+            //e.preventDefault();
+            let messages = [];
+            let messages2 = [];
+            if (logo.value === '' || logo.value == null) {
+                //alert('ahmed');
+                messages.push('This field is required');
+                erroElement.innerHTML = messages;
+            }
+            else {
+                messages = [];
+                erroElement.innerHTML = messages;
+
+                    }
+            if (license.value === '' || license.value == null) {
+                //alert('ahmed');
+                messages2.push('This field is required');
+                erroElement1.innerHTML = messages2;
+                    }
+            else {
+                messages = [];
+                erroElement1.innerHTML = messages2;
+
+                    }
+
+
+                });
+    </script>
+
+ }

@@ -1,0 +1,291 @@
+﻿@{
+    Layout = "";
+}
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Benzoo</title>
+    <link rel="icon" type="image/png" href="~/Benzoo/assets/images/icons/favicon.png">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800%7CSeoge+Script:400,500,600,700,800"media="all">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Benzoo/assets/css/style.min.css">
+    <link rel="stylesheet" href="~/Benzoo/assets/css/Dark-mode.css">
+    <style>
+      .header-search.hs-expanded {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        margin: 0 auto;
+        min-width: auto;
+        max-width: 25.299999999999997rem;
+        height: 4.8rem;
+        border: 2px solid #fff;
+      }
+      .form-control,.header-search .btn-search{
+        background-color: transparent !important;
+        color: #fff;
+      }
+    </style>
+
+  </head>
+
+<body >
+  <div class="page-wrapper">
+
+    <!-- Start of Header -->
+    <header class="header">
+      <div class="header-middle">
+        <div class="container">
+          <div class="header-left mr-md-4">
+            <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
+            </a>
+                        <a asp-controller="Home" asp-action="Index" class="logo ml-lg-0">
+                            <img src="~/Benzoo/assets/images/logo.png" alt="logo" width="144" height="45">
+                        </a>
+            <form method="get" action="#"
+              class="header-search d-none hs-expanded hs-round br-xs d-md-flex input-wrapper mr-4 ml-4">
+              <input type="text" class="form-control text-light border-no" name="search" id="search"
+                placeholder="Search blog" required="" fdprocessedid="6tanbm">
+              <button class="btn btn-search border-no" type="submit" fdprocessedid="71u6m"><i
+                  class="w-icon-search"></i></button>
+            </form>
+          </div>
+          <nav class="main-nav">
+            <ul class="menu active-underline">
+                            <li><a asp-controller="Blog" asp-action="News">News</a></li>
+                            <li><a asp-controller="Blog" asp-action="Features">Features</a></li>
+                            <li><a asp-controller="Blog" asp-action="Esports">Esports</a></li>
+                            <li><a class="btn btn-dark btn ls-25 pl-3 pr-3" asp-controller="Home" asp-action="Index">@AlAl3abProject.Resources.ResWebsite.lbBuy </a></li>
+              <ul class="menu active-underline">
+                <li class="has-submenu">
+                  <a href="#">Languages</a>
+                  <ul class="submenu" style="background-color: #095494;">
+                    <li><a href="#" style="color: #fff;text-align: center;">Arabic</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </header>
+    <!-- End of Header -->
+
+    <!-- Start of Main -->
+    <main class="main">
+      <nav class="breadcrumb-nav mb-6">
+        <div class="container">
+          <ul class="breadcrumb">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#" class="text-black">Esports</a></li>
+            <br>
+          </ul>
+          <h2 class="fw-900 mt-0 mb-0">Esports</h2>
+        </div>
+      </nav>
+
+      <div class="page-content mb-10 pb-2">
+        <div class="container">
+          <div class="row gutter-lg">
+            <div class="col-lg-9 main-content">
+              <article class="post post-list post-listing  overlay-zoom">
+                <figure class="post-media br-sm">
+                  <a href="blog-single.html">
+                    <img src="/Benzoo/assets/images/blog/1.png" width="930" height="500" alt="blog">
+                  </a>
+                </figure>
+                <div class="post-details">
+                  <div class="post-cats text-primary">
+                    <a href="blog-single.html">EDITORIAL PICKS</a>
+                  </div>
+                  <h4 class="post-title">
+                    <a href="blog-single.html">Best of Games in 2022</a>
+                  </h4>
+                  <div class="post-content">
+                    <p>This year we laughed, we cried, we could play as a cat, a goat, and we even built our cult.
+                      We finally got the acclaimed Playstation games on PC and died numerous deaths, followed by
+                      ragequitting and, possibly, some broken controllers and keyboards. 2022 was a true
+                      rollercoaster with many heartfelt moments and intense </p>
+                    <h6>December 29, 2022</h6>
+                  </div>
+
+                </div>
+              </article>
+              <article class="post post-list post-listing  overlay-zoom">
+                <figure class="post-media br-sm">
+                  <a href="blog-single.html">
+                                        <img src="/Benzoo/assets/images/blog/1.png" width="930" height="500" alt="blog">
+                  </a>
+                </figure>
+                <div class="post-details">
+                  <div class="post-cats text-primary">
+                    <a href="blog-single.html">EDITORIAL PICKS</a>
+                  </div>
+                  <h4 class="post-title">
+                    <a href="blog-single.html">Best of Games in 2022</a>
+                  </h4>
+                  <div class="post-content">
+                    <p>This year we laughed, we cried, we could play as a cat, a goat, and we even built our cult.
+                      We finally got the acclaimed Playstation games on PC and died numerous deaths, followed by
+                      ragequitting and, possibly, some broken controllers and keyboards. 2022 was a true
+                      rollercoaster with many heartfelt moments and intense </p>
+                    <h6>December 29, 2022</h6>
+                  </div>
+
+                </div>
+              </article>
+              <article class="post post-list post-listing  overlay-zoom">
+                <figure class="post-media br-sm">
+                  <a href="blog-single.html">
+                                        <img src="/Benzoo/assets/images/blog/1.png" width="930" height="500" alt="blog">
+                  </a>
+                </figure>
+                <div class="post-details">
+                  <div class="post-cats text-primary">
+                    <a href="blog-single.html">EDITORIAL PICKS</a>
+                  </div>
+                  <h4 class="post-title">
+                    <a href="blog-single.html">Best of Games in 2022</a>
+                  </h4>
+                  <div class="post-content">
+                    <p>This year we laughed, we cried, we could play as a cat, a goat, and we even built our cult.
+                      We finally got the acclaimed Playstation games on PC and died numerous deaths, followed by
+                      ragequitting and, possibly, some broken controllers and keyboards. 2022 was a true
+                      rollercoaster with many heartfelt moments and intense </p>
+                    <h6>December 29, 2022</h6>
+                  </div>
+
+                </div>
+              </article>
+
+
+
+
+              <ul class="pagination justify-content-center">
+                <li class="prev disabled">
+                  <a href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                    <i class="w-icon-long-arrow-left"></i>Prev
+                  </a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="next">
+                  <a href="#" aria-label="Next">
+                    Next<i class="w-icon-long-arrow-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- End of Main Content -->
+            <div class="col-lg-3">
+              <aside class="sidebar right-sidebar blog-sidebar sidebar-fixed sticky-sidebar-wrapper">
+                <div class="sidebar-overlay">
+                  <a href="#" class="sidebar-close" style="margin-left: 0px;">
+                    <i class="close-icon"></i>
+                  </a>
+                </div>
+                <a href="#" class="sidebar-toggle">
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+                <div class="sidebar-content">
+                  <div class="pin-wrapper">
+                    <div class="sticky-sidebar" style="border-bottom: 0px none rgb(102, 102, 102); width: 280px;">
+                      <div class="widget widget-tags">
+                        <h3 class="widget-title bb-no">Browse Tags</h3>
+                        <div class="widget-body tags">
+                          <a href="#" class="tag">Esports</a>
+                          <a href="#" class="tag">Features</a>
+                          <a href="#" class="tag">Features</a>
+                          <a href="#" class="tag">Features</a>
+                          <a href="#" class="tag">Game Tips</a>
+                          <a href="#" class="tag">Opinions</a>
+                          <a href="#" class="tag">Fres to play</a>
+                          <a href="#" class="tag">Platform news</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+  </div>
+  <!-- End of Page-wrapper -->
+
+
+  <div class="mode dark-version">
+    <form>
+    <label id="switch" class="switch" for="checkbox">
+        <input type="checkbox" checked onclick="toggle(this.form)" id="checkbox">
+        <span class="slider round change"></span>Toggle
+    </label>
+  </form>
+</div>
+
+    <!-- Start of Mobile Menu -->
+    <div class="mobile-menu-wrapper">
+      <div class="mobile-menu-overlay"></div>
+      <!-- End of .mobile-menu-overlay -->
+
+      <a href="#" class="mobile-menu-close"><i class="close-icon"></i></a>
+  <!-- Start of Mobile Menu -->
+  <div class="mobile-menu-container scrollable">
+
+            <a asp-controller="Home" asp-action="Index" class="logo ml-lg-0">
+                <img src="/Benzoo/assets/images/blog/1.png" alt="logo" width="144" height="45">
+            </a>
+            <div class="tab-content">
+      <div class="tab-pane active" id="main-menu">
+        <ul class="mobile-menu">
+                        <li><a asp-controller="Blog" asp-action="News">@AlAl3abProject.Resources.ResWebsite.lbNews</a></li>
+                        <li><a asp-controller="Blog" asp-action="Features">@AlAl3abProject.Resources.ResWebsite.lbFeatures</a></li>
+                        <li><a asp-controller="Blog" asp-action="Esports">@AlAl3abProject.Resources.ResWebsite.lbEsports</a></li>
+                        <li><a class="btn btn-dark btn ls-25 pl-3 pr-3" asp-controller="Home" asp-action="Index">@AlAl3abProject.Resources.ResWebsite.lbBuy </a></li>
+                        <li><a href="#">Arabic</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- End of Mobile Menu -->
+
+
+
+
+
+  <!-- Plugin JS File -->
+  <script src="~/Benzoo/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/parallax/parallax.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+  <script src="java.js"></script>  <script src="../assets/vendor/skrollr/skrollr.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="~/Benzoo/assets/vendor/zoom/jquery.zoom.js"></script>
+  <script src="~/Benzoo/assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
+    <script src="~/Benzoo/assets/vendor/codemirror/codemirror.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="../assets/js/main.min.js"></script>
+
+
+</body>
+
+</html>

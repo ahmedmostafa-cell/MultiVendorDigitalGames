@@ -1,0 +1,127 @@
+﻿@model Domains.TbMainCategory
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">الوحة التحكم/</span>  اضافة   فئة رئيسية للمنتج
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">   مدن</h5>
+                <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="MainCategory" asp-action="Save" class="card-body">
+
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="MainCategoryId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">  اسم  الفئة الرئيسية للمنتج</label>
+                            <input asp-for="MainCategoryTitle" type="text" class="form-control" id="basic-default-fullname" placeholder="       اسم  الفئة الرئيسية للمنتج" />
+                            <span asp-validation-for="MainCategoryTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                          
+                            <label class="form-label" for="basic-default-fullname">    اسم  الفئة الرئيسية للمنتج الانجليزي</label>
+                            <input asp-for="MainCategoryTitleEn" type="text" class="form-control" id="basic-default-fullname" placeholder="         اسم  الفئة الرئيسية للمنتج الانجليزي  " />
+                            <span asp-validation-for="MainCategoryTitleEn" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">    وصف  الفئة الرئيسية للمنتج </label>
+                            <input asp-for="MainCategoryDescription" type="text" class="form-control" id="basic-default-fullname" placeholder="         وصف  الفئة الرئيسية للمنتج   " />
+                            <span asp-validation-for="MainCategoryDescription" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">    وصف  الفئة الرئيسية للمنتج الانجليزي</label>
+                            <input asp-for="MainCategoryDescriptionEn" type="text" class="form-control" id="basic-default-fullname" placeholder="         وصف  الفئة الرئيسية للمنتج الانجليزي  " />
+                            <span asp-validation-for="MainCategoryDescriptionEn" class="text-danger"></span>
+                        </div>
+                     
+
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="multicol-country">اسم نوع الرئيسي للفئة الرئيسية    </label>
+                            <select asp-items="@(new SelectList(ViewBag.types , "TypeId" , "TypeTitle"))" asp-for="TypeId" id="multicol-country" class="select2 form-select" data-allow-clear="true">
+                                <option value="">اختر  اسم نوع الرئيسي للفئة الرئيسية </option>
+
+                            </select>
+                            <span asp-validation-for="TypeId" class="text-danger"></span>
+                        </div>
+
+
+
+
+
+                      
+
+
+
+
+
+                       
+
+
+
+
+                        <div class="pt-4">
+                            <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    <script>
+                //alert("ahmed");
+                const logo = document.getElementById('selectedFile');
+                const license = document.getElementById('selectedFiles');
+                const form = document.getElementById('form')
+                const erroElement = document.getElementById('error')
+                const erroElement1 = document.getElementById('error1')
+        form.addEventListener('submit', (e) => {
+            //e.preventDefault();
+            let messages = [];
+            let messages2 = [];
+            if (logo.value === '' || logo.value == null) {
+                //alert('ahmed');
+                messages.push('This field is required');
+                erroElement.innerHTML = messages;
+            }
+            else {
+                messages = [];
+                erroElement.innerHTML = messages;
+
+                    }
+            if (license.value === '' || license.value == null) {
+                //alert('ahmed');
+                messages2.push('This field is required');
+                erroElement1.innerHTML = messages2;
+                    }
+            else {
+                messages = [];
+                erroElement1.innerHTML = messages2;
+
+                    }
+
+
+                });
+    </script>
+
+ }

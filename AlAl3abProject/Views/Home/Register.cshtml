@@ -1,0 +1,237 @@
+﻿@{
+    Layout = "";
+}
+@model RegisterViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<BL.ApplicationUser> signInManager
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Benzoo</title>
+    <link rel="icon" type="image/png" href="~/Benzoo/assets/images/icons/favicon.png">
+    <script src="~/Benzoo/assets/js/webfont.js" async=""></script>
+    <link rel="preload" href="~/Benzoo/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
+    <link rel="preload" href="~/Benzoo/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
+    <link rel="preload" href="~/Benzoo/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
+          crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/wolmart.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/vendor/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Benzoo/assets/css/style.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800%7CSeoge+Script:400,500,600,700,800"
+          media="all">
+</head>
+<style>
+    .form-control.form-control-md {
+        background-color: #063a67;
+    }
+
+    label {
+        color: #fff;
+    }
+
+    ul li::marker {
+        display: none;
+    }
+</style>
+
+<body class="loaded" style="background-color: #063a67;">
+
+    <div class="page-wrapper">
+        <main class="main">
+            <div class="page-content">
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <img class="pt-4 pl-3" src="~/Benzoo/assets/images/logo.png" alt="Logo" width="168" height="53">
+                </a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="coming-content">
+                                <h2 class="coming-title ls-25">Hi! <br> It’s nice to see <span>you!</span></h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-4">
+                            <div class="signup">
+                                <h3> <i class="w-icon-user"></i> Create account</h3>
+                                <p>Alreeady Have account ? <a asp-controller="Home" asp-action="login"> Login</a></p>
+                                <form class="form account-details-form" asp-controller="Home" asp-action="Register" method="post" role="form">
+                                     <div asp-validation-summary="All" class="text-danger"></div>
+                                    <div class="form-group">
+                                        <input type="text" asp-for="Email" placeholder="Email"
+                                               class="form-control form-control-md pl-3">
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                     <div class="form-group">
+                                        <input type="text" asp-for="Name" placeholder="Name"
+                                               class="form-control form-control-md pl-3">
+                                                <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" asp-for="Password" placeholder="password"
+                                               class="form-control form-control-md pl-3">
+                                                <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" asp-for="ConfirmPassword" placeholder="Repeat password"
+                                               class="form-control pl-3 form-control-md">
+                                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                     <div class="form-group checkbox-toggle pb-2">
+                                    <input type="checkbox" class="custom-checkbox" id="shipping-toggle" name="shipping-toggle">
+                                    <label for="shipping-toggle">At least 8 characters</label>
+                                </div>
+
+                                <div class="form-group checkbox-toggle pb-2">
+                                    <input type="checkbox" class="custom-checkbox" id="shipping-toggle" name="shipping-toggle">
+                                    <label for="shipping-toggle">At least one number (0-9) or special symbol</label>
+                                </div>
+
+                                <div class="form-group checkbox-toggle pb-2">
+                                    <input type="checkbox" class="custom-checkbox" id="shipping-toggle" name="shipping-toggle">
+                                    <label for="shipping-toggle">
+                                        I want to receive custom personalized offers for the very best game
+                                        deals
+                                    </label>
+                                </div>
+                                      <button type="submit" class="btn btn-success form-control">Register</button>
+                                </form>
+
+                               
+
+
+                               
+                                <div class="uOlJYa mt-3"><span>or</span></div>
+                                  @{
+                                    var schemes = await signInManager.GetExternalAuthenticationSchemesAsync();
+                                    var loginProivders = schemes.ToList();
+                                }
+                                @if (loginProivders.Count() > 0)
+                                {
+                                    @foreach (var provider in loginProivders) 
+                                    {
+                                        <form asp-controller="Home" asp-action="ExternalLogin" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" role="form">
+
+                                            @if (provider.Name == "Google") 
+                                            {
+                                                <p>
+                                                    <div  >
+                                                        <img src="~/Benzoo/assets/images/google2.png"
+                                                 class="float-left" alt=""> <button class="btn btn-google  btn-shadow  btn-rounded w-100" style="width: 100%;border:none;" name="provider" value="@provider.Name" type="submit">
+                                                            Register with @provider.Name
+                                                        </button>
+                                                    </div>
+                                                </p>
+                                            }
+                                            else 
+                                            {
+                                                <p>
+                                                     <div>
+                                                        <img src="~/Benzoo/assets/images/facebook.png" class="float-left" alt=""> <button class="btn btn-facebook btn-shadow btn-rounded w-100 mt-2" style="width: 100%;border:none;" name="provider" value="@provider.Name" type="submit">
+                                                            Register with @provider.Name
+                                                        </button>
+                                                </div>
+
+                                                </p>
+                                               
+                                            }
+
+                                           
+                                           
+
+
+
+                                        </form>
+
+                                    }
+                                      
+                                         
+                                           
+                                       
+                                    
+                                }
+
+                               @* <ul class="qNgoiK ikKZhd">
+                                    <li>
+                                        <a class="nvhBqF dRk_mO" href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="" style="max-width: 15px; min-width: 15px; height: 15px;">
+                                                <clipPath id="88ad06a86fd18f083bdc5e25e69c09da__a">
+                                                    <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4A21.94 21.94 0 0 0 2 24c0 12.2 9.8 22 22 22 11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"></path>
+                                                </clipPath>
+                                                <path clip-path="url(#88ad06a86fd18f083bdc5e25e69c09da__a)" fill="#FBBC05" d="M0 37V11l17 13z">
+                                                </path>
+                                                <path clip-path="url(#88ad06a86fd18f083bdc5e25e69c09da__a)" fill="#EA4335"
+                                                      d="m0 11 17 13 7-6.1L48 14V0H0z"></path>
+                                                <path clip-path="url(#88ad06a86fd18f083bdc5e25e69c09da__a)" fill="#34A853"
+                                                      d="m0 37 30-23 7.9 1L48 0v48H0z"></path>
+                                                <path clip-path="url(#88ad06a86fd18f083bdc5e25e69c09da__a)" fill="#4285F4"
+                                                      d="M48 48 17 24l-4-3 35-10z"></path>
+                                            </svg>
+                                            <span>Google</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nvhBqF UueKo6" href="/social-connect/facebook">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 11 23" class="" style="max-width: 15px; min-width: 15px; height: 15px;">
+                                                <path fill="#fff"
+                                                      d="M6.87 7.87h3.8l-.26 3.21H6.87v11.15H2.39V11.08H0v-3.2h2.39V5.72c0-.95.03-2.42.77-3.33.78-.96 1.86-1.61 3.7-1.61 3.02 0 4.3.4 4.3.4l-.6 3.28s-1-.26-1.93-.26c-.93 0-1.76.3-1.76 1.17v2.5z">
+                                                </path>
+                                            </svg><span>Facebook</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nvhBqF lipWJk" href="/social-connect/apple">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                 viewBox="0 0 11 14" class="" style="max-width: 15px; min-width: 15px; height: 15px;">
+                                                <path fill="#000" fill-rule="nonzero"
+                                                      d="M9.18 7.16c-.02-1.7 1.39-2.53 1.45-2.57a3.15 3.15 0 0 0-2.46-1.33c-1.05-.1-2.05.62-2.58.62-.53 0-1.35-.6-2.22-.59a3.3 3.3 0 0 0-2.8 1.69c-1.18 2.06-.3 5.12.86 6.79.57.82 1.24 1.74 2.13 1.7.85-.03 1.17-.55 2.2-.55 1.04 0 1.33.55 2.23.54.92-.02 1.5-.84 2.06-1.66.65-.95.92-1.87.94-1.92-.02 0-1.8-.68-1.81-2.72zm-1.7-5c.47-.58.79-1.37.7-2.16-.68.03-1.5.45-1.98 1.02-.44.5-.82 1.31-.72 2.09a2.5 2.5 0 0 0 2-.96z">
+                                                </path>
+                                            </svg><span class="text-white">Apple</span>
+                                        </a>
+                                    </li>
+                                </ul>*@
+                                <p style="font-size: 12px;margin-top: 5px;color: #d3d3d3;">By creating account I confirm I am at least 16 and agree to Benzoo <a href=""> Terms and Conditions </a> and <a href=""> Privacy Notice.</a></p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="footer">
+                        <p class="copyright text-white">Copyright © 2023 Benzoo Store. All Rights Reserved.</p>
+                        <a href="">Terms & Conditions</a>
+                        <a href="">Privacy notice</a>
+                        <a href="">Cookie Preferences</a>
+                        <a href="">Support</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+
+
+
+    <!-- Plugin JS File -->
+    <script src="~/Benzoo/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Benzoo/assets/vendor/jquery.plugin/jquery.plugin.min.js"></script>
+    <script src="~/Benzoo/assets/vendor/jquery.countdown/jquery.countdown.min.js"></script>
+    <script src="~/Benzoo/assets/js/main.min.js"></script>
+
+    await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+</body>
+
+</html>

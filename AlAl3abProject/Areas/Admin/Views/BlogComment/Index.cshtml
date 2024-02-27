@@ -1,0 +1,90 @@
+﻿@model AlAl3abProject.Models.HomePageModel
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> USERmANAGER
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4"><span class="text-muted fw-light">لوحة التحكم /</span>  التعليق عل المدونات</h4>
+    
+    <!-- DataTable with Buttons -->
+    <div class="card">
+        <div class="data_table">
+            <table id="example" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>اسم صاحب التعليق</th>
+                      
+                        <th>   ايميل صاحب التعليق</th>
+
+                        <th>    التعليق</th>
+                        <th> عنوان المدونة</th>
+
+                        <th>  التاريخ</th>
+
+                     
+
+                        <th>اخفاء او اظهار</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.lstBlogComments)
+                    {
+
+                        <tr>
+                            <td>@USERmANAGER.Users.Where(a=> a.Id == item.CommenterId).FirstOrDefault().FirstName</td>
+                            <td>
+                                @USERmANAGER.Users.Where(a=> a.Id == item.CommenterId).FirstOrDefault().Email
+                            </td>
+                            <td>@item.CommentSyntax</td>
+                            <td>
+                                @Model.lstBlogs.Where(A=> A.BlogId == item.BlogId).FirstOrDefault().BlogTitle
+                            </td>
+                            <td>@item.CreatedDate</td>
+                         
+                           @if(item.CurrentState ==1 ) 
+                           {
+                                <td>
+                                    <a asp-area="Admin" asp-controller="BlogComment" asp-action="Delete" asp-route-id="@item.BlogCommentId" class="btn btn-danger text-white" style="cursor:pointer">
+                                        حذف
+                                    </a>
+                                </td>
+
+                           }
+                            else if (item.CurrentState == 0)
+                           {
+                                <td>
+                                    <a asp-area="Admin" asp-controller="BlogComment" asp-action="Delete" asp-route-id="@item.BlogCommentId" class="btn btn-info text-white" style="cursor:pointer">
+                                        اظهار
+                                    </a>
+                                </td>
+
+                           }
+                          
+
+
+                        </tr>
+
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal to add new record -->
+    <div class="offcanvas offcanvas-end" id="add-new-record">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="exampleModalLabel">New Record</h5>
+            <button type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+        </div>
+
+    </div>
+    <!--/ DataTable with Buttons -->
+
+    <hr class="my-5" />
+
+
+    <!--/ Content -->
+</div>

@@ -1,0 +1,229 @@
+﻿@{
+    Layout = "_Layout1";
+}
+
+@model IndexHomePageModel
+
+        <!-- Start of Main -->
+        <main class="main mb-10 pb-1">
+            <!-- Start of Page Content -->
+            <div class="page-content" style="background-color: #095494;">
+                <div class="container pt-10" style="max-width: 100%;margin-bottom: -41px;">
+                    <div class="row gutter-lg">
+                        <div class="main-content">
+                            <div class="product product-single row">
+                                <div class="col-md-2 mb-6">
+                                    <div class="product-gallery product-gallery-sticky" style="    height: 328;width: 224;">
+                                        <div class="swiper-container product-single-swiper swiper-theme nav-inner swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+                                            <div class="swiper-wrapper " id="swiper-wrapper-0da2121e7e854194">
+                                                <div class="swiper-slide" role="group" aria-label="2 / 6"
+                                                    style="width: 455px;">
+                                                    <figure class="product-image"
+                                                        style="position: relative; overflow: hidden; cursor: pointer;">
+                                                <img src="@string.Format("/Uploads/{0}" , Model.itemSeller.ItemImagePath)"
+                                                     data-zoom-image="@string.Format("/Uploads/{0}" , Model.itemSeller.ItemImagePath)"
+                                                            alt="Electronics Black Wrist Watch" width="488"
+                                                            height="549">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="product-gallery-btn product-image-full"><i
+                                                    class="w-icon-zoom"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 mb-md-6">
+                                    <div class="product-details" data-sticky-options="{'minWidth': 767}">
+                                <h1 class="product-title text-white">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? Model.itemSeller.ItemNameEn : Model.itemSeller.ItemName)</h1>
+
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                        <span class="ratings" style="width: @ViewBag.ratingPercent%;"></span>
+                                                <span class="tooltiptext tooltip-top">2.00</span>
+                                            </div>
+                                    <a href="#product-tab-reviews" class="rating-reviews scroll-to">@Model.itemSeller.SellerItemEvaluationNumbers / 5 @AlAl3abProject.Resources.ResWebsite.lbfrom @ViewBag.itemCountOfRatings @AlAl3abProject.Resources.ResWebsite.lbratings</a>
+                                        </div>
+
+                                        <div class="product-meta">
+                                            <div class="product-categories">
+                                                @foreach(var item in Model.lstItemSubCategory) 
+                                                {
+                                            <span class="product-category"><a href="#">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.SubCategory.SubCategoryTitleEn : item.SubCategory.SubCategoryTitle)</a></span>
+                                                }
+                                               
+                                               
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="product-bm-wrapper mt-4">
+                                                    <figure class="brand">
+                                                        <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="mj6tQW VaChm0" style="max-width: 35px; min-width: 35px; height: auto;"><path d="M0.750 12.000 A11.250 11.250 0 1 0 23.250 12.000 A11.250 11.250 0 1 0 0.750 12.000 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.045 19.955L19.955 4.045" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                                    </figure>
+                                                    <div class="product-meta mt-4">
+                                                        <div class="product-sku">
+                                                            <h4 class="text-white">Europe</h4>
+                                                            <p class="text-white mt-0">Can't be activated in Egypt</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="product-bm-wrapper mt-4">
+                                                    <figure class="brand">
+                                                        <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="mj6tQW VaChm0" style="max-width: 35px; min-width: 35px; height: auto;"><path d="M0.750 12.000 A11.250 11.250 0 1 0 23.250 12.000 A11.250 11.250 0 1 0 0.750 12.000 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.045 19.955L19.955 4.045" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                                    </figure>
+                                                    <div class="product-meta mt-4">
+                                                        <div class="product-sku">
+                                                            <h4 class="text-white">Europe</h4>
+                                                            <p class="text-white mt-0">Can't be activated in Egypt</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="product-bm-wrapper mt-4">
+                                                    <figure class="brand">
+                                                        <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="mj6tQW VaChm0" style="max-width: 35px; min-width: 35px; height: auto;"><path d="M0.750 12.000 A11.250 11.250 0 1 0 23.250 12.000 A11.250 11.250 0 1 0 0.750 12.000 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.045 19.955L19.955 4.045" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                                    </figure>
+                                                    <div class="product-meta mt-4">
+                                                        <div class="product-sku">
+                                                            <h4 class="text-white">Europe</h4>
+                                                            <p class="text-white mt-0">Can't be activated in Egypt</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <br>
+
+                                        <hr class="product-divider">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                            <a href="@Url.Action("AddToWishList", "Wishlist", new {  itemSellerId = Model.itemSeller.ItemSellerId })"><i class="btn-product-iconheart  w-icon-heart"></i></a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div style="background-color: #063a67;padding: 15px;">
+                                        <div class="product-price"><ins class="new-price text-white">$@Model.itemSeller.ItemSalePrice</ins></div>
+                               
+                               
+                                    <a href="@Url.Action("AddToCart", "ViewCart", new {  itemSellerId = Model.itemSeller.ItemSellerId })" class="btn btn-primary  " style="min-width: 100%;" fdprocessedid="k7g75xh">
+                                        <i class="w-icon-cart"></i>
+                                        <span>@AlAl3abProject.Resources.ResWebsite.lbAdd </span>
+                                    </a>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="product-thumbs-wrap">
+                                       
+                                            <div class="product-thumbs">
+                                    @foreach (var i in Model.lstItemSellerImages)
+                                    {
+                                        <div class="product-thumb ml-2">
+                                            <img src="@string.Format("/Uploads/{0}" , i.ItemImagePath)" alt="Product Thumb">
+                                            <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@i.ItemSellerId" class="product-gallery-btn product-image-full">
+                                                <i class="w-icon-zoom"></i>
+                                            </a>
+                                        </div>
+                                    }
+                                              
+                                            </div>  
+
+                                        </div>
+                                        <div class="container shop-content">
+                                            <h2 class="section-title pt-5 text-white">Related products</h2>
+                                            <div class="main-content">
+                                              <div class="product-wrapper row cols-lg-5 cols-md-4 cols-sm-3 cols-2">
+                                                  @foreach(var item in Model.lstRelated2Products) 
+                                                  {
+                                            <div class="product-wrap">
+                                                <div class="product text-center">
+                                                    <figure class="product-media">
+                                                        <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId">
+                                                            <img src="@string.Format("/Uploads/{0}" , item.ItemImagePath)" class="img-fluid" alt="Product" width="300" height="225" style="height: 290px;">
+                                                        </a>
+                                                        <a href="@Url.Action("AddToWishList", "Wishlist", new {  itemSellerId = item.ItemSellerId })" ><i class="btn-product-iconheart  w-icon-heart"></i></a>
+
+
+                                                    </figure>
+                                                    <div class="product-details" style="background-color: #021A2F;">
+
+                                                        <h3 class="product-name text-white">
+                                                            <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="text-white"> @(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.ItemNameEn : item.ItemName)</a>
+                                                        </h3>
+                                                        <div class="product-cat">
+                                                            <a href="shop-banner-sidebar.html">@(AlAl3abProject.Resources.ResWebsite.Culture.Name == "en" ? item.RegionEn : item.RegionName)</a>
+                                                        </div>
+                                                        <div class="product-cat">
+                                                            <a href="shop-banner-sidebar.html">From</a>
+                                                        </div>
+
+                                                        <div class="product-pa-wrapper">
+                                                            <div class="product-price">
+                                                                $@item.ItemSalePrice
+                                                            </div>
+                                                        </div>
+                                                        <div class="ratings-container">
+
+                                                            <a asp-controller="ItemDetails" asp-action="Index" asp-route-id="@item.ItemSellerId" class="w-icon-heart"> @item.NumberOfAddFavourite</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                  }
+                                               
+                                                
+                                              </div>
+
+                                              <div class="toolbox toolbox-pagination justify-content-center">
+                                                <div class="btn-wrap show-code-action">
+                                                  <a href="#" class="btn btn-primary btn-outline mb-6">Load more</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="container">
+                                            <h4 class="text-white">Product description</h4>
+                                            <div style="background-color: #021A2F;padding: 20px;">
+                                            <p class="text-white">@Model.itemSeller.UpdatedBy</p>
+                                            <hr class="product-divider">
+                                           @* <p class="text-white">This item is sold by individual seller. Learn more</p>*@
+                                            </div>
+                                          </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Page Content -->
+
+
+        </main>
+        <!-- End of Main -->
+
+
+    
+    <!-- WebFont.js -->
+<script src="~/Benzoo/assets/js/webfont.js" async=""></script>
+    <script>
+        WebFontConfig = {
+            google: { families: ['Poppins:400,500,600,700'] }
+        };
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'Benzoo/assets/js/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>

@@ -1,0 +1,123 @@
+﻿@model Domains.TbAboutU
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">لوحة التحكم/</span>  عن التطبيق
+    </h4>
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+
+
+
+            <!-- Multi Column with Form Separator -->
+            <div class="card mb-4">
+                <h5 class="card-header">عناصر عن الموقع</h5>
+                <form enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="AboutU" asp-action="Save" class="card-body">
+                 
+                  
+                  <div class="row g-3">
+                    <div class="col-md-12">
+                       <input type="hidden" asp-for="AboutUsId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">العنوان الاول</label>
+                            <input asp-for="FirstTitle" type="text" class="form-control" id="basic-default-fullname" placeholder="العنوان الاول" />
+                            <span asp-validation-for="FirstTitle" class="text-danger"></span>
+                    </div>
+                        <div class="col-md-12">
+                            <input type="hidden" asp-for="AboutUsId">
+                            <input type="hidden" asp-for="CreatedDate">
+                            <label class="form-label" for="basic-default-fullname">العنوان الاول لانجليزي</label>
+                            <input asp-for="FirstTitleEn1" type="text" class="form-control" id="basic-default-fullname" placeholder="العنوان الاول لانجليزي" />
+                            <span asp-validation-for="FirstTitleEn1" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">العنوان الثاني</label>
+                            <input asp-for="SecondTitle" type="text" class="form-control" id="basic-default-fullname" placeholder="العنوان الثاني" />
+                            <span asp-validation-for="SecondTitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">العنوان الثاني الانجليزي</label>
+                            <input asp-for="SecondTitleEn1" type="text" class="form-control" id="basic-default-fullname" placeholder="العنوان الثاني الانجليزي" />
+                            <span asp-validation-for="SecondTitleEn1" class="text-danger"></span>
+                        </div>
+                    <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح العنوان الاول</label>
+                            <textarea asp-for="FirstText" type="text" class="form-control" id="basic-default-company" placeholder="شرح العنوان الاول" ></textarea>
+                            <span asp-validation-for="FirstText" class="text-danger"></span>
+                    </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح العنوان الاول الانجليزي</label>
+                            <textarea asp-for="FirstTextEn1" type="text" class="form-control" id="basic-default-company" placeholder="شرح العنوان الاول الانجليزي"></textarea>
+                            <span asp-validation-for="FirstTextEn1" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">العنوان الثالث</label>
+                            <input asp-for="ThirdTtitle" type="text" class="form-control" id="basic-default-fullname" placeholder="العنوان الثالث" />
+                            <span asp-validation-for="ThirdTtitle" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+
+                            <label class="form-label" for="basic-default-fullname">العنوان الثالث الانجليزي</label>
+                            <input asp-for="ThirdTtitleEn1" type="text" class="form-control" id="basic-default-fullname" placeholder="العنوان الثالث الانجليزي" />
+                            <span asp-validation-for="ThirdTtitleEn1" class="text-danger"></span>
+                        </div>
+                       
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح الجزا الاول من العنوان الثالث</label>
+                            <textarea asp-for="SecondText" type="text" class="form-control" id="basic-default-company" placeholder="شرح الجزا الاول من العنوان الثالث"></textarea>
+                            <span asp-validation-for="SecondText" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح الجزا الاول من العنوان الثالث الانجليزي</label>
+                            <textarea asp-for="SecondTextEn1" type="text" class="form-control" id="basic-default-company" placeholder="شرح الجزا الاول من العنوان الثالث الانجليزي"></textarea>
+                            <span asp-validation-for="SecondTextEn1" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح الجزا الثاني من العنوان الثالث</label>
+                            <textarea asp-for="CreatedBy" type="text" class="form-control" id="basic-default-company" placeholder="شرح الجزا الثاني من العنوان الثالث"></textarea>
+                            <span asp-validation-for="CreatedBy" class="text-danger"></span>
+                        </div>
+                          <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح الجزا الثاني من العنوان الثالث الانجليزي</label>
+                            <textarea asp-for="CreatedByEn1" type="text" class="form-control" id="basic-default-company" placeholder="شرح الجزا الثاني من العنوان الثالث الانجليزي"></textarea>
+                            <span asp-validation-for="CreatedByEn1" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح الجزا الثالث من العنوان الثالث</label>
+                            <textarea asp-for="UpdatedBy" type="text" class="form-control" id="basic-default-company" placeholder="شرح الجزا الثالث من العنوان الثالث"></textarea>
+                            <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label" for="basic-default-company">  شرح الجزا الثالث من العنوان الثالث الانجليزي</label>
+                            <textarea asp-for="UpdatedByEn" type="text" class="form-control" id="basic-default-company" placeholder="شرح الجزا الثالث من العنوان الثالث الانجليزي"></textarea>
+                            <span asp-validation-for="UpdatedByEn" class="text-danger"></span>
+                        </div>
+                     
+                    
+                    
+                   
+                  </div>
+                  <div class="pt-4">
+                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                  
+                  </div>
+                </form>
+              </div>
+        </div>
+      
+    </div>
+
+
+ </div>
+ @section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+     
+    }
+
+ }
